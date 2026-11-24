@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, BookOpen, Brain, CheckCircle, HelpCircle } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import teachBackTutorLogo from '../assets/teach-back-tutor-logo.png';
 import '../styles/Hero.css';
 
 const Hero = () => {
+  const { isAuthenticated } = useAuth();
   const scrollToExplore = (e) => {
     e.preventDefault();
     const target = document.getElementById('start-learning') || document.getElementById('how-it-works');
@@ -42,7 +44,8 @@ const Hero = () => {
 
           <div className="hero-cta-group">
             <Link 
-              to="/topics" 
+              to={isAuthenticated ? "/topics" : "/login"} 
+              state={{ from: '/topics' }}
               className="btn btn-primary btn-lg hero-primary-btn"
             >
               <span>Start Learning</span>

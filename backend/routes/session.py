@@ -15,7 +15,8 @@ Endpoints:
 import uuid
 from datetime import datetime
 from typing import List, Dict, Any, Optional
-from fastapi import APIRouter, HTTPException, status, Query
+from fastapi import APIRouter, HTTPException, status, Query, Depends
+from routes.auth import get_required_current_user
 
 from schemas.session_schema import (
     StartSessionRequest, StartSessionResponse,
@@ -123,13 +124,17 @@ async def _list_all_sessions(user_id: Optional[str] = None) -> list:
     summary="Start a New Teaching Session",
     description="Creates a new session document in MongoDB (or in-memory). Returns a session_id to use in subsequent requests."
 )
-async def start_session(request: StartSessionRequest):
+async def start_session(
+    request: StartSessionRequest,
+    current_user: dict = Depends(get_required_current_user)
+):
     session_id = str(uuid.uuid4())
+    uid = current_user.get("user_id", current_user.get("id"))
     doc = create_session_document(
         session_id=session_id,
         topic=request.topic,
         student_level=request.student_level or "Beginner",
-        user_id=request.user_id
+        user_id=uid
     )
     await _save_new_session(doc)
 
@@ -151,7 +156,11 @@ async def start_session(request: StartSessionRequest):
     summary="Send Teacher Explanation to AI Student",
     description="Sends the teacher's message to Gemini and returns 1-2 curious questions. Saves to MongoDB if session_id is provided."
 )
-async def send_session_message(request: SessionMessageRequest):
+async def send_session_message(
+    request: SessionMessageRequest,
+    current_user: dict = Depends(get_required_current_user)
+):
+    uid = current_user.get("user_id", current_user.get("id"))
     # 1. Generate AI response from Gemini
     ai_response = generate_student_response(
         topic=request.topic,
@@ -168,11 +177,11 @@ async def send_session_message(request: SessionMessageRequest):
         new_doc = create_session_document(
             session_id=active_session_id,
             topic=request.topic,
-            user_id=request.user_id
+            user_id=uid
         )
         await _save_new_session(new_doc)
-    elif request.user_id and not doc.get("user_id"):
-        await _update_session(active_session_id, {"user_id": request.user_id})
+    elif uid and not doc.get("user_id"):
+        await _update_session(active_session_id, {"user_id": uid})
 
     # 4. Append both messages to conversation_history
     teacher_msg = build_message_entry("teacher", request.student_message)
@@ -196,7 +205,11 @@ async def send_session_message(request: SessionMessageRequest):
     summary="End Session & Generate Evaluation Report",
     description="Evaluates the full transcript using Gemini AI. Saves the report and marks session as completed."
 )
-async def end_session(request: EndSessionRequest):
+async def end_session(
+    request: EndSessionRequest,
+    current_user: dict = Depends(get_required_current_user)
+):
+    uid = current_user.get("user_id", current_user.get("id"))
     # 1. Run Gemini evaluation
     evaluation_data = evaluate_session_transcript(
         topic=request.topic,
@@ -256,8 +269,12 @@ async def end_session(request: EndSessionRequest):
     summary="List All Teaching Sessions",
     description="Returns all sessions (completed and active) sorted by most recent first. Can filter by user_id."
 )
-async def list_sessions_new(user_id: Optional[str] = Query(None, description="Filter sessions by user_id")):
-    all_sessions = await _list_all_sessions(user_id=user_id)
+async def list_sessions_new(
+    user_id: Optional[str] = Query(None, description="Filter sessions by user_id"),
+    current_user: dict = Depends(get_required_current_user)
+):
+    uid = current_user.get("user_id", current_user.get("id"))
+    all_sessions = await _list_all_sessions(user_id=uid)
     result = []
     for s in all_sessions:
         result.append(SessionListItem(
@@ -282,12 +299,21 @@ async def list_sessions_new(user_id: Optional[str] = Query(None, description="Fi
     summary="Get Session Detail",
     description="Returns the complete session including conversation transcript and evaluation report."
 )
-async def get_session_detail(session_id: str):
+async def get_session_detail(
+    session_id: str,
+    current_user: dict = Depends(get_required_current_user)
+):
     doc = await _get_session_doc(session_id)
     if not doc:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Session '{session_id}' not found."
+        )
+    uid = current_user.get("user_id", current_user.get("id"))
+    if doc.get("user_id") and doc.get("user_id") != uid:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You do not have permission to view this session."
         )
     return SessionDetailResponse(
         id=doc.get("session_id", session_id),

@@ -78,7 +78,8 @@ const Navbar = () => {
             About
           </a>
           <Link 
-            to="/history" 
+            to={isAuthenticated ? "/history" : "/login"} 
+            state={{ from: '/history' }}
             className="nav-link"
             onClick={closeMenu}
           >
@@ -118,7 +119,8 @@ const Navbar = () => {
           )}
 
           <Link 
-            to="/topics" 
+            to={isAuthenticated ? "/topics" : "/login"} 
+            state={{ from: '/topics' }}
             className="btn btn-primary nav-btn"
             onClick={closeMenu}
           >
@@ -172,7 +174,8 @@ const Navbar = () => {
             About
           </a>
           <Link 
-            to="/history" 
+            to={isAuthenticated ? "/history" : "/login"} 
+            state={{ from: '/history' }}
             className="mobile-link"
             onClick={closeMenu}
           >
@@ -204,7 +207,8 @@ const Navbar = () => {
 
           <div className="mobile-cta-wrapper">
             <Link 
-              to="/topics" 
+              to={isAuthenticated ? "/topics" : "/login"} 
+              state={{ from: '/topics' }}
               className="btn btn-primary btn-block"
               onClick={closeMenu}
             >

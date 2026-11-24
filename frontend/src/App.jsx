@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import CustomCursor from './components/CustomCursor';
+import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -26,14 +27,38 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/topics" element={<TopicSelection />} />
-          <Route path="/select-topic" element={<TopicSelection />} />
-          <Route path="/session" element={<Session />} />
-          <Route path="/session/:id" element={<Session />} />
-          <Route path="/chat" element={<Session />} />
-          <Route path="/report" element={<Report />} />
-          <Route path="/report/:id" element={<Report />} />
-          <Route path="/history" element={<History />} />
+          <Route 
+            path="/topics" 
+            element={<ProtectedRoute><TopicSelection /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/select-topic" 
+            element={<ProtectedRoute><TopicSelection /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/session" 
+            element={<ProtectedRoute><Session /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/session/:id" 
+            element={<ProtectedRoute><Session /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/chat" 
+            element={<ProtectedRoute><Session /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/report" 
+            element={<ProtectedRoute><Report /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/report/:id" 
+            element={<ProtectedRoute><Report /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/history" 
+            element={<ProtectedRoute><History /></ProtectedRoute>} 
+          />
         </Routes>
       </main>
       {!isClassroom && <Footer />}

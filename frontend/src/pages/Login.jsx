@@ -52,6 +52,24 @@ const Login = () => {
           <p className="auth-subtitle">Log in to track your teaching sessions and mastery scores.</p>
         </div>
 
+        {location.state?.from && (
+          <div style={{
+            background: 'rgba(91, 77, 245, 0.08)',
+            border: '1px solid rgba(91, 77, 245, 0.22)',
+            padding: '10px 14px',
+            borderRadius: '10px',
+            fontSize: '0.88rem',
+            color: 'var(--brand-purple)',
+            marginBottom: '18px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <Sparkles size={16} />
+            <span>Please log in to access your learning sessions.</span>
+          </div>
+        )}
+
         {errorMessage && (
           <div className="auth-error-banner" role="alert">
             <AlertCircle size={18} />
@@ -121,10 +139,6 @@ const Login = () => {
         <div className="auth-footer">
           <span>Don't have an account yet?</span>
           <Link to="/register" state={{ from }} className="auth-switch-link">Sign Up</Link>
-        </div>
-
-        <div className="auth-guest-option">
-          <Link to="/topics" className="auth-guest-link">or continue as a Guest Teacher &rarr;</Link>
         </div>
       </div>
     </div>

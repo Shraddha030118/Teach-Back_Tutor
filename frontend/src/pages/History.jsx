@@ -151,25 +151,6 @@ const History = () => {
           </div>
         </div>
 
-        {!isAuthenticated && (
-          <div style={{
-            background: 'linear-gradient(90deg, rgba(79, 40, 217, 0.08) 0%, rgba(124, 58, 237, 0.05) 100%)',
-            border: '1px solid rgba(79, 40, 217, 0.2)',
-            borderRadius: '12px',
-            padding: '14px 20px',
-            marginBottom: '24px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '12px'
-          }}>
-            <div style={{ fontSize: '0.92rem', color: '#334155' }}>
-              💡 <strong>Guest Mode:</strong> You're currently browsing local sessions. <Link to="/login" style={{ color: '#4f28d9', fontWeight: '700' }}>Log In</Link> or <Link to="/register" style={{ color: '#4f28d9', fontWeight: '700' }}>Create an Account</Link> to save and access your teaching sessions anywhere.
-            </div>
-          </div>
-        )}
-
         {error && (
           <div className="session-error-banner" style={{ marginBottom: '24px' }}>
             <span>{error}</span>

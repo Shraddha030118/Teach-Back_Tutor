@@ -68,6 +68,24 @@ const Register = () => {
           <p className="auth-subtitle">Join the platform to master topics by teaching inquisitive AI students.</p>
         </div>
 
+        {location.state?.from && (
+          <div style={{
+            background: 'rgba(91, 77, 245, 0.08)',
+            border: '1px solid rgba(91, 77, 245, 0.22)',
+            padding: '10px 14px',
+            borderRadius: '10px',
+            fontSize: '0.88rem',
+            color: 'var(--brand-purple)',
+            marginBottom: '18px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <Sparkles size={16} />
+            <span>Create your account to start your learning journey.</span>
+          </div>
+        )}
+
         {errorMessage && (
           <div className="auth-error-banner" role="alert">
             <AlertCircle size={18} />
@@ -171,10 +189,6 @@ const Register = () => {
         <div className="auth-footer">
           <span>Already have an account?</span>
           <Link to="/login" state={{ from }} className="auth-switch-link">Log In</Link>
-        </div>
-
-        <div className="auth-guest-option">
-          <Link to="/topics" className="auth-guest-link">or continue as a Guest Teacher &rarr;</Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,196 @@
+.how-section {
+  padding: 100px 0;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+/* Step Cards */
+.step-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(79, 40, 217, 0.3);
+}
+
+.step-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.step-number-badge {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--border-light);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.step-card:hover .step-number-badge {
+  color: var(--brand-purple);
+}
+
+.step-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-purple {
+  background-color: var(--brand-purple-subtle);
+  color: var(--brand-purple);
+}
+
+.icon-gold {
+  background-color: var(--accent-gold-light);
+  color: var(--accent-gold-dark);
+}
+
+.icon-teal {
+  background-color: var(--accent-teal-light);
+  color: var(--accent-teal);
+}
+
+.step-tag-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-purple);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.step-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  letter-spacing: -0.015em;
+}
+
+.step-description {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.step-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.step-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.highlight-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Subtle accent bottom bar */
+.step-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.step-card-purple:hover .step-bottom-bar {
+  background: var(--brand-purple);
+}
+
+.step-card-gold:hover .step-bottom-bar {
+  background: var(--accent-gold);
+}
+
+.step-card-teal:hover .step-bottom-bar {
+  background: var(--accent-teal);
+}
+
+/* CTA Strip */
+.how-cta-strip {
+  background: linear-gradient(135deg, #2e1065 0%, #4f28d9 100%);
+  border-radius: var(--radius-xl);
+  padding: 32px 40px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-xl);
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cta-strip-text h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cta-strip-text p {
+  font-size: 0.95rem;
+  color: #e9d5ff;
+}
+
+.cta-strip-btn {
+  background: #ffffff;
+  color: var(--brand-purple);
+  box-shadow: none;
+}
+
+.cta-strip-btn:hover {
+  background: #fdf4ff;
+  color: var(--brand-purple-dark);
+}
+
+@media (max-width: 992px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .how-cta-strip {
+    text-align: center;
+    justify-content: center;
+    padding: 28px 24px;
+  }
+}

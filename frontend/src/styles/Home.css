@@ -1,0 +1,230 @@
+.landing-page-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-learning-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at 50% 10%, #faf5ff 0%, #ffffff 80%);
+  border-top: 1px solid var(--border-light);
+}
+
+.start-learning-card {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  box-shadow: var(--shadow-xl);
+}
+
+.topic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.topic-text-input {
+  width: 100%;
+  padding: 18px 22px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: all 0.25s ease;
+}
+
+.topic-text-input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: var(--brand-purple);
+  box-shadow: 0 0 0 4px rgba(79, 40, 217, 0.12);
+}
+
+/* Persona Grid */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.persona-card {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.persona-card:hover {
+  border-color: var(--brand-purple-light);
+  background-color: #ffffff;
+}
+
+.persona-card.active {
+  border-color: var(--brand-purple);
+  background-color: var(--brand-purple-subtle);
+  box-shadow: 0 4px 14px rgba(79, 40, 217, 0.1);
+}
+
+.persona-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.persona-level {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-purple);
+}
+
+.persona-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.persona-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.launch-notice-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--brand-purple-subtle);
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brand-purple-dark);
+}
+
+.notice-icon {
+  color: var(--brand-purple);
+  flex-shrink: 0;
+}
+
+.form-submit-container {
+  display: flex;
+  justify-content: center;
+}
+
+.start-session-submit-btn {
+  width: 100%;
+  max-width: 440px;
+  font-size: 1.1rem;
+}
+
+/* Curated Presets Strip */
+.curated-presets-section {
+  padding-top: 36px;
+  border-top: 1px solid var(--border-light);
+}
+
+.presets-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.curated-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.curated-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.curated-card:hover {
+  background-color: #ffffff;
+  border-color: var(--brand-purple-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.curated-card.selected {
+  border-color: var(--brand-purple);
+  background-color: var(--brand-purple-subtle);
+}
+
+.curated-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.curated-cat {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.curated-icon {
+  color: var(--text-muted);
+}
+
+.curated-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.curated-summary {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 868px) {
+  .start-learning-card {
+    padding: 30px 20px;
+  }
+
+  .persona-grid,
+  .curated-grid {
+    grid-template-columns: 1fr;
+  }
+}

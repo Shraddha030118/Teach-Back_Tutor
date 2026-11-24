@@ -1,0 +1,163 @@
+/* ========================================================
+   Chat Message Bubbles Styles
+   Educational-Tech Theme: Purple, Lavender & White
+   ======================================================== */
+
+.chat-message-row {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  animation: messageFadeIn 0.25s ease-out;
+}
+
+.teacher-row {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+.student-row {
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+/* Avatar Box */
+.message-avatar-box {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.student-avatar {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f28d9 100%);
+  color: #ffffff;
+  border: 2px solid #ede9fe;
+}
+
+.teacher-avatar {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: 2px solid #dbeafe;
+}
+
+/* Message Wrapper */
+.message-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 72%;
+}
+
+.teacher-row .message-content-wrapper {
+  align-items: flex-end;
+}
+
+.student-row .message-content-wrapper {
+  align-items: flex-start;
+}
+
+/* Meta Header */
+.message-meta-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+}
+
+.sender-display-name {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.student-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background-color: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+.message-timestamp {
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
+/* Message Bubbles */
+.message-bubble {
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+/* Student Bubble (Left) */
+.student-bubble {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1.5px solid #ede9fe;
+  border-top-left-radius: 4px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.06);
+}
+
+.student-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3.5px;
+  background: linear-gradient(180deg, #7c3aed 0%, #4f28d9 100%);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* Teacher Bubble (Right) */
+.teacher-bubble {
+  background: linear-gradient(135deg, #4f28d9 0%, #6d28d9 100%);
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  box-shadow: 0 6px 20px rgba(79, 40, 217, 0.22);
+  letter-spacing: -0.01em;
+}
+
+.bubble-text {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@keyframes messageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .message-content-wrapper {
+    max-width: 86%;
+  }
+
+  .message-bubble {
+    font-size: 0.92rem;
+    padding: 12px 14px;
+  }
+}
+

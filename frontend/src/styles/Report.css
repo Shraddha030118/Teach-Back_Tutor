@@ -1,0 +1,630 @@
+/* ========================================================
+   Evaluation Report Page Styles
+   Theme: Purple, Lavender & Crisp White Educational UI
+   ======================================================== */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.report-page-wrapper {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 0%, #f5f0ff 0%, #ffffff 50%, #faf8ff 100%);
+  padding-bottom: 100px;
+}
+
+/* Top Strip */
+.report-top-strip {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid #e2e8f0;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.report-top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.back-home-link:hover {
+  color: #4f28d9;
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+  transform: translateX(-2px);
+}
+
+.report-brand-logo {
+  height: 42px;
+  width: auto;
+  aspect-ratio: 1024 / 682;
+  object-fit: contain;
+  display: block;
+}
+
+/* Header Banner */
+.report-header-banner {
+  text-align: center;
+  max-width: 760px;
+  margin: 44px auto 36px;
+}
+
+.report-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.report-title {
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.report-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+}
+
+.report-subtitle strong {
+  color: #4f28d9;
+}
+
+/* 1. Hero Score Card */
+.report-hero-card {
+  background: #ffffff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 10px 30px -5px rgba(79, 40, 217, 0.08);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.hero-score-dial-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.score-dial-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid #4f28d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px rgba(79, 40, 217, 0.2);
+  margin-bottom: 12px;
+  background: linear-gradient(145deg, #ffffff 0%, #faf8ff 100%);
+}
+
+.dial-score-num {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #4f28d9;
+  line-height: 1;
+}
+
+.dial-max {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.performance-tier-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tier-gold {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.tier-purple {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+.tier-blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.tier-amber {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fef3c7;
+}
+
+.hero-feedback-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.feedback-heading-row h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.overall-feedback-content {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #334155;
+  margin: 0;
+}
+
+/* 2. Score Cards Grid */
+.score-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.criterion-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.criterion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(79, 40, 217, 0.08);
+  border-color: #c4b5fd;
+}
+
+.criterion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.criterion-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.criterion-score-badge {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #4f28d9;
+  background: #f5f3ff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #ede9fe;
+}
+
+.progress-track {
+  height: 10px;
+  background-color: #f1f5f9;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progress-purple {
+  background: linear-gradient(90deg, #7c3aed 0%, #4f28d9 100%);
+}
+
+.progress-indigo {
+  background: linear-gradient(90deg, #6366f1 0%, #4338ca 100%);
+}
+
+.progress-teal {
+  background: linear-gradient(90deg, #0d9488 0%, #059669 100%);
+}
+
+.criterion-caption {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 3. Strengths & Gaps Grid */
+.insights-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.insight-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.insight-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.insight-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box-green {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.icon-box-amber {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.insight-card-header h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.insight-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.insight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.strength-item,
+.gap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.item-bullet-icon {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.green-bullet {
+  color: #10b981;
+}
+
+.bullet-dot {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.amber-bullet {
+  color: #f59e0b;
+}
+
+.empty-insight-note {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* 4. Misconceptions Section */
+.misconceptions-section {
+  margin-bottom: 32px;
+}
+
+.clean-misconceptions-card {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.clean-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.15);
+  flex-shrink: 0;
+}
+
+.clean-text-box h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #15803d;
+  margin-bottom: 2px;
+}
+
+.clean-text-box p {
+  font-size: 0.9rem;
+  color: #166534;
+  margin: 0;
+}
+
+.misconceptions-alert-card {
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  border-radius: 16px;
+  padding: 22px 26px;
+}
+
+.misconceptions-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.alert-icon-red {
+  color: #dc2626;
+}
+
+.misconceptions-header h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #b91c1c;
+  margin: 0;
+}
+
+.misconceptions-list {
+  padding-left: 20px;
+  color: #991b1b;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* 5. Revision Topics Card */
+.revision-card {
+  background: #ffffff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(79, 40, 217, 0.04);
+  margin-bottom: 48px;
+}
+
+.revision-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.revision-header h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.revision-caption {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.revision-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.revision-topic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4f28d9;
+}
+
+.chip-index {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #7c3aed;
+  color: #ffffff;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 6. Footer Navigation Buttons */
+.report-actions-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.report-actions-row .btn-lg {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+}
+
+/* Empty State */
+.report-empty-state-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.report-empty-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 48px 36px;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.empty-icon-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f5f3ff;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.report-empty-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.report-empty-card p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.empty-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 968px) {
+  .report-hero-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 24px;
+    padding: 28px 24px;
+  }
+
+  .feedback-heading-row {
+    justify-content: center;
+  }
+
+  .score-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-two-col-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print Stylesheet */
+@media print {
+  .no-print,
+  .report-top-strip,
+  .report-actions-row {
+    display: none !important;
+  }
+
+  .report-page-wrapper {
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+
+  .report-hero-card,
+  .criterion-card,
+  .insight-card,
+  .revision-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+  }
+}

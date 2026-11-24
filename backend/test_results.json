@@ -1,0 +1,144 @@
+{
+  "conversation_tests": [
+    {
+      "topic": "Photosynthesis",
+      "teacher_input": "Photosynthesis is the process where plants take sunlight, carbon dioxide from the air, and water through roots, and turn them into glucose for food while releasing oxygen into the air.",
+      "ai_reply": "Oh, I see! So the plant is basically making its own food using sunlight, water, and air? \n\nWait, I'm a bit confused about how the sunlight actually helps make the food\u2014does the plant \"eat\" the sunlight, or does it just act like an engine? And how does it turn all of that into glucose?",
+      "questions_count": 3,
+      "word_count": 54,
+      "status": "PASSED"
+    },
+    {
+      "topic": "Artificial Intelligence",
+      "teacher_input": "AI is basically software that learns patterns from massive amounts of data instead of following hardcoded if-else rules. Neural networks adjust weights to get better at predicting things.",
+      "ai_reply": "Oh, wow, okay! So instead of a human writing a bunch of rules, the software basically figures it out on its own? \n\nWait, what are \"weights\" though? How does a neural network actually adjust them?",
+      "questions_count": 3,
+      "word_count": 35,
+      "status": "PASSED"
+    },
+    {
+      "topic": "DBMS",
+      "teacher_input": "A Database Management System lets you store and query structured data reliably. It uses tables with rows and columns, and enforces ACID properties so transactions don't corrupt the data.",
+      "ai_reply": "Oh, I think I get the table part\u2014kind of like a big Excel spreadsheet, right? But you mentioned something called \"ACID properties\" that keeps data from getting corrupted. \n\nWhat does \"ACID\" actually stand for, and how does it keep things safe?",
+      "questions_count": 2,
+      "word_count": 41,
+      "status": "PASSED"
+    },
+    {
+      "topic": "Python Basics",
+      "teacher_input": "In Python, you don't need to declare variable types. You can create lists, dictionaries, and loops using simple indentation instead of curly braces.",
+      "ai_reply": "Oh, wait, really? That sounds pretty nice since I wouldn't have to worry about typing out long rules, but how does Python actually know what kind of data is in a variable if I don't tell it? And what do you mean by using indentation instead of curly braces\u2014doesn't that get confusing to keep track of?",
+      "questions_count": 3,
+      "word_count": 56,
+      "status": "PASSED"
+    },
+    {
+      "topic": "Solar System",
+      "teacher_input": "The solar system has the Sun at the center, with eight planets orbiting around it held by gravity. The inner planets are rocky and the outer planets are gas giants.",
+      "ai_reply": "Oh, I see! So the Sun is kind of like the anchor in the middle keeping everything moving in circles. \n\nWait, what actually keeps us stuck on Earth instead of floating off into space, and why don't the planets crash into the Sun if its gravity is holding them?",
+      "questions_count": 1,
+      "word_count": 49,
+      "status": "PASSED"
+    },
+    {
+      "topic": "Photosynthesis",
+      "teacher_input": "Plants do photosynthesis by breathing in oxygen and breathing out carbon dioxide at all times, and sunlight just heats up the leaves.",
+      "ai_reply": "Wait, really? I thought plants breathed in carbon dioxide and breathed out oxygen, kind of the opposite of us. And what does sunlight actually do then if it's just heating the leaves up?",
+      "questions_count": 2,
+      "word_count": 33,
+      "status": "PASSED"
+    },
+    {
+      "topic": "DBMS",
+      "teacher_input": "Can you explain what a relational database is and what ACID stands for?",
+      "ai_reply": "Hi! I'm really trying to wrap my head around this whole DBMS thing, but those terms sound a bit overwhelming to start with. \n\nCould you break down what a relational database actually is in really simple terms? And what on earth does ACID stand for\u2014does it have something to do with chemistry?",
+      "questions_count": 2,
+      "word_count": 52,
+      "status": "PASSED"
+    }
+  ],
+  "evaluation_tests": [
+    {
+      "profile": "Profile A: Complete, correct explanation with analogies",
+      "scores": {
+        "clarity": 9,
+        "understanding": 8,
+        "accuracy": 9,
+        "avg": 8.7
+      },
+      "misconceptions_count": 0,
+      "gaps_count": 2,
+      "status": "PASSED"
+    },
+    {
+      "profile": "Profile B: Incomplete explanation (missing key mechanisms)",
+      "scores": {
+        "clarity": 3,
+        "understanding": 2,
+        "accuracy": 3,
+        "avg": 2.7
+      },
+      "misconceptions_count": 1,
+      "gaps_count": 3,
+      "status": "PASSED"
+    },
+    {
+      "profile": "Profile C: Blatantly incorrect information & misconceptions",
+      "scores": {
+        "clarity": 2,
+        "understanding": 0,
+        "accuracy": 0,
+        "avg": 0.7
+      },
+      "misconceptions_count": 3,
+      "gaps_count": 2,
+      "status": "PASSED"
+    },
+    {
+      "profile": "Profile D: Very short, minimal one-word/terse answers",
+      "scores": {
+        "clarity": 1,
+        "understanding": 1,
+        "accuracy": 2,
+        "avg": 1.3
+      },
+      "misconceptions_count": 0,
+      "gaps_count": 3,
+      "status": "PASSED"
+    },
+    {
+      "profile": "Profile E: Clear explanation with real-world examples",
+      "scores": {
+        "clarity": 9,
+        "understanding": 9,
+        "accuracy": 9,
+        "avg": 9.0
+      },
+      "misconceptions_count": 0,
+      "gaps_count": 1,
+      "status": "PASSED"
+    }
+  ],
+  "error_handling_tests": [
+    {
+      "name": "Empty student explanation to ai_service",
+      "status": "PASSED",
+      "detail": "Student message cannot be empty. Please provide an explanation."
+    },
+    {
+      "name": "Empty topic to ai_service",
+      "status": "PASSED",
+      "detail": "Topic must be specified."
+    },
+    {
+      "name": "Empty transcript to evaluation_service",
+      "status": "PASSED",
+      "detail": "Cannot evaluate an empty conversation. Please teach the student first."
+    },
+    {
+      "name": "Transcript with no teacher message to evaluation_service",
+      "status": "PASSED",
+      "detail": "No explanations found from the teacher. You must explain the topic at least once before requesting an evaluation."
+    }
+  ]
+}

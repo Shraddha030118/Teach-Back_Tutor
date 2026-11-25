@@ -302,47 +302,109 @@
 }
 
 /* Chat Messages */
+[data-theme="dark"] .student-bubble,
+[data-theme="dark"] .message-bubble.student-bubble,
 [data-theme="dark"] .message-bubble.student,
 [data-theme="dark"] .chat-bubble.student {
-  background: #151e33;
+  background: #141c2e;
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #f1f5f9;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
+[data-theme="dark"] .student-bubble::before {
+  background: linear-gradient(180deg, #8b5cf6 0%, #6366f1 100%);
+}
+
+[data-theme="dark"] .student-bubble .bubble-text {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .teacher-bubble,
+[data-theme="dark"] .message-bubble.teacher-bubble,
 [data-theme="dark"] .message-bubble.teacher,
 [data-theme="dark"] .chat-bubble.teacher {
-  background: linear-gradient(135deg, #5b4df5 0%, #4335e6 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(91, 77, 245, 0.4);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
 }
 
+[data-theme="dark"] .sender-display-name,
 [data-theme="dark"] .message-sender-name {
-  color: #94a3b8;
+  color: #f1f5f9;
 }
 
+[data-theme="dark"] .student-pill {
+  background: rgba(139, 92, 246, 0.16);
+  color: #c4b5fd;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+[data-theme="dark"] .message-timestamp,
 [data-theme="dark"] .message-time {
   color: #64748b;
 }
 
-/* Chat Input Bar */
-[data-theme="dark"] .classroom-input-bar,
-[data-theme="dark"] .chat-input-container {
-  background: rgba(15, 21, 36, 0.95);
-  border-top-color: rgba(255, 255, 255, 0.08);
+[data-theme="dark"] .thinking-bubble {
+  background: #141c2e !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
+[data-theme="dark"] .typing-dots-animation span {
+  background-color: #a78bfa;
+}
+
+/* Chat Input Bar & Sticky Footer */
+[data-theme="dark"] .chat-input-sticky-footer,
+[data-theme="dark"] .classroom-input-bar {
+  background: #090d16;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .chat-input-card {
+  background: #131b2e;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .chat-input-card:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .chat-textarea-field,
 [data-theme="dark"] .chat-textarea,
 [data-theme="dark"] .classroom-textarea {
-  background: #131b2e;
-  border-color: rgba(255, 255, 255, 0.12);
   color: #f8fafc;
+  background: transparent;
 }
 
-[data-theme="dark"] .chat-textarea:focus,
-[data-theme="dark"] .classroom-textarea:focus {
-  border-color: var(--brand-purple);
-  box-shadow: 0 0 0 3px rgba(109, 93, 246, 0.2);
+[data-theme="dark"] .chat-textarea-field::placeholder,
+[data-theme="dark"] .chat-textarea::placeholder {
+  color: #64748b;
+}
+
+[data-theme="dark"] .input-actions-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .input-hint-text {
+  color: #64748b;
+}
+
+[data-theme="dark"] .input-hint-text span {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .chat-send-btn {
+  background-color: rgba(139, 92, 246, 0.16);
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .chat-send-btn.active {
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
 }
 
 [data-theme="dark"] .char-counter {
@@ -368,6 +430,36 @@
 
 [data-theme="dark"] .modal-description {
   color: #94a3b8;
+}
+
+[data-theme="dark"] .modal-warning-box {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.25);
+  color: #fcd34d;
+}
+
+[data-theme="dark"] .evaluating-card {
+  background: #131b2e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .evaluating-card h3 {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .evaluating-desc {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .evaluating-desc strong {
+  color: #a78bfa;
+}
+
+[data-theme="dark"] .evaluating-spinner-box {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
 }
 
 /* 6. Evaluation Report Page */

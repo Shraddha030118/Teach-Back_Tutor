@@ -105,9 +105,9 @@
 
 /* Student Bubble (Left) */
 .student-bubble {
-  background: #ffffff;
-  color: #1e293b;
-  border: 1.5px solid #ede9fe;
+  background: #f5f2ff;
+  color: #1e1b4b;
+  border: 1.5px solid #ddd6fe;
   border-top-left-radius: 4px;
   position: relative;
   box-shadow: 0 4px 16px rgba(124, 58, 237, 0.06);

@@ -8,11 +8,11 @@
 }
 
 .chat-input-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
+  background: #f5f2ff;
+  border: 1.5px solid #ddd6fe;
   border-radius: 16px;
   padding: 14px 18px 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;

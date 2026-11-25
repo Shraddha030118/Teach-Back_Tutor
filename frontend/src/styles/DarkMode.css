@@ -289,16 +289,18 @@
   border-color: rgba(255, 255, 255, 0.08);
 }
 
+[data-theme="dark"] .prompt-chip-btn,
 [data-theme="dark"] .starter-prompt-btn {
-  background: #172036;
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #cbd5e1;
+  background: #172036 !important;
+  border-color: rgba(139, 92, 246, 0.25) !important;
+  color: #cbd5e1 !important;
 }
 
+[data-theme="dark"] .prompt-chip-btn:hover,
 [data-theme="dark"] .starter-prompt-btn:hover {
-  background: rgba(109, 93, 246, 0.2);
-  border-color: var(--brand-purple);
-  color: #ffffff;
+  background: rgba(109, 93, 246, 0.25) !important;
+  border-color: var(--brand-purple) !important;
+  color: #ffffff !important;
 }
 
 /* Chat Messages */
@@ -306,10 +308,10 @@
 [data-theme="dark"] .message-bubble.student-bubble,
 [data-theme="dark"] .message-bubble.student,
 [data-theme="dark"] .chat-bubble.student {
-  background: #141c2e;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f1f5f9;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  background: #141c2e !important;
+  border: 1px solid rgba(139, 92, 246, 0.25) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4) !important;
 }
 
 [data-theme="dark"] .student-bubble::before {
@@ -357,14 +359,14 @@
 /* Chat Input Bar & Sticky Footer */
 [data-theme="dark"] .chat-input-sticky-footer,
 [data-theme="dark"] .classroom-input-bar {
-  background: #090d16;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #090d16 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 [data-theme="dark"] .chat-input-card {
-  background: #131b2e;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  background: #131b2e !important;
+  border: 1.5px solid rgba(139, 92, 246, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
 }
 
 [data-theme="dark"] .chat-input-card:focus-within {

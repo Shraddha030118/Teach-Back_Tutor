@@ -33,7 +33,17 @@ const Login = () => {
       navigate(from, { replace: true });
     } catch (err) {
       console.error('Login error:', err);
-      const msg = err.response?.data?.message || err.response?.data?.detail || 'Invalid email or password. Please try again.';
+      let msg = 'Unable to log in. Please check your credentials.';
+      if (!err.response) {
+        const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+        msg = isLocal
+          ? 'Unable to connect to the backend server. Please make sure the FastAPI backend is running on port 8000.'
+          : 'Unable to connect to the backend API. Please make sure your backend is deployed and VITE_API_URL is configured in your deployment settings.';
+      } else if (err.response.status === 401) {
+        msg = err.response.data?.message || err.response.data?.detail || 'Invalid email or password. Please try again.';
+      } else {
+        msg = err.response.data?.message || err.response.data?.detail || 'Login failed. Please check your credentials and try again.';
+      }
       setErrorMessage(typeof msg === 'string' ? msg : 'Unable to log in. Please check your credentials.');
     } finally {
       setIsLoading(false);

@@ -49,7 +49,17 @@ const Register = () => {
       navigate(from, { replace: true });
     } catch (err) {
       console.error('Registration error:', err);
-      const msg = err.response?.data?.message || err.response?.data?.detail || 'Registration failed. An account with this email may already exist.';
+      let msg = 'Registration failed. Please try again.';
+      if (!err.response) {
+        const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+        msg = isLocal
+          ? 'Unable to connect to the backend server. Please make sure the FastAPI backend is running on port 8000.'
+          : 'Unable to connect to the backend API. Please make sure your backend is deployed and VITE_API_URL is configured in your deployment settings.';
+      } else if (err.response.status === 400) {
+        msg = err.response.data?.message || err.response.data?.detail || 'An account with this email may already exist.';
+      } else {
+        msg = err.response.data?.message || err.response.data?.detail || 'Registration failed. Please check your details and try again.';
+      }
       setErrorMessage(typeof msg === 'string' ? msg : 'Unable to create account. Please try again.');
     } finally {
       setIsLoading(false);

@@ -1,6 +1,23 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+// Get base URL from environment or fallback to localhost:8000
+const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+// Strip trailing slashes to avoid double-slashes in endpoint paths
+const API_BASE_URL = rawApiUrl.replace(/\/+$/, '');
+
+// In production, warn if VITE_API_URL was not set at build time
+if (
+  typeof window !== 'undefined' &&
+  !import.meta.env.VITE_API_URL &&
+  window.location.hostname !== 'localhost' &&
+  window.location.hostname !== '127.0.0.1'
+) {
+  console.warn(
+    '[Teach-Back Tutor] Warning: VITE_API_URL is not configured for this deployment. ' +
+    'The app is currently falling back to http://localhost:8000. ' +
+    'Please set VITE_API_URL in your hosting platform (Vercel, Netlify, Render) to your deployed backend URL.'
+  );
+}
 
 // Axios instance
 const api = axios.create({

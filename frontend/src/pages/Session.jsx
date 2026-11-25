@@ -174,7 +174,11 @@ const Session = () => {
       setMessages((prev) => [...prev, aiReply]);
     } catch (err) {
       console.error('Failed to get student response:', err);
-      const detail = err.response?.data?.message || err.response?.data?.detail || 'Unable to communicate with the AI student. Make sure the FastAPI server is running on port 8000.';
+      const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      const connMsg = isLocal
+        ? 'Unable to communicate with the AI student. Make sure the FastAPI backend is running on port 8000.'
+        : 'Unable to communicate with the AI student. Please verify the backend service is running and accessible.';
+      const detail = err.response?.data?.message || err.response?.data?.detail || connMsg;
       setErrorMessage(detail);
     } finally {
       setIsAiThinking(false);

@@ -35,9 +35,9 @@ async def connect_to_mongo():
 
         _client = AsyncIOMotorClient(
             MONGODB_URL,
-            serverSelectionTimeoutMS=5000,   # 5s timeout for initial connection
-            connectTimeoutMS=5000,
-            socketTimeoutMS=10000,
+            serverSelectionTimeoutMS=10000,   # 10s timeout for initial connection
+            connectTimeoutMS=10000,
+            socketTimeoutMS=15000,
         )
 
         # Ping to verify the connection is actually alive

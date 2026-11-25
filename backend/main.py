@@ -35,18 +35,25 @@ app = FastAPI(
 )
 
 # ---------------------------------------------------------------------------
-# CORS — allow React frontend on localhost:3000 and :5173
+# CORS — support local dev, preview URLs, and deployed production frontends
 # ---------------------------------------------------------------------------
-origins = [
+default_origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
 
+env_origins = [
+    o.strip()
+    for o in os.getenv("ALLOWED_ORIGINS", "").split(",")
+    if o.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=list(set(default_origins + env_origins)),
+    allow_origin_regex=r"^https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -133,6 +140,6 @@ except Exception as e:
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8000))
-    host = os.getenv("HOST", "127.0.0.1")
+    host = os.getenv("HOST", "0.0.0.0")
     print(f"Starting Teach-Back Tutor API on http://{host}:{port}")
     uvicorn.run("main:app", host=host, port=port, reload=True)

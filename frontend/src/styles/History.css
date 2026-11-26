@@ -431,7 +431,7 @@
     width: 100%;
     justify-content: space-between;
     padding-top: 14px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--border);
   }
 
   .history-controls-bar {
@@ -445,5 +445,43 @@
 
   .history-filter-pills {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-header-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .history-page-title {
+    font-size: 1.75rem;
+  }
+
+  .history-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .metric-stat-card {
+    padding: 16px 14px;
+  }
+
+  .history-session-card {
+    padding: 16px 14px;
+  }
+
+  .session-card-title {
+    font-size: 1.1rem;
+  }
+
+  .session-right-side {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .session-score-block {
+    text-align: left;
   }
 }

@@ -349,19 +349,44 @@
 @media (max-width: 640px) {
   .chat-input-card {
     padding: 10px 12px 8px;
+    border-radius: var(--radius-md);
   }
+
   .input-hint-text {
     display: none;
   }
-  .voice-mic-btn {
-    padding: 7px 10px;
-    font-size: 0.8rem;
+
+  .voice-recording-strip {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 6px 8px;
   }
+
+  .voice-status-group {
+    gap: 6px;
+  }
+
+  .voice-status-text {
+    font-size: 0.76rem;
+  }
+
+  .soundwave-bars {
+    display: none;
+  }
+
+  .voice-mic-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-height: 38px;
+  }
+
   .voice-btn-label {
     display: none;
   }
+
   .chat-send-btn {
-    padding: 7px 14px;
-    font-size: 0.82rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    min-height: 38px;
   }
 }

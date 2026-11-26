@@ -146,3 +146,29 @@
     padding: 12px 14px;
   }
 }
+
+@media (max-width: 480px) {
+  .chat-message-row {
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .avatar svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .message-content-wrapper {
+    max-width: 90%;
+  }
+
+  .message-bubble {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border-radius: 14px;
+  }
+}

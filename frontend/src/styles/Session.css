@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-main);
   color: var(--text-main);
   overflow: hidden;
@@ -138,6 +139,7 @@
   width: 100%;
   margin: 0 auto;
   height: calc(100vh - 66px);
+  height: calc(100dvh - 66px);
   overflow: hidden;
 }
 
@@ -514,7 +516,7 @@
 
 /* 4. Sticky Input Area */
 .chat-input-sticky-footer {
-  padding: 12px 20px 16px;
+  padding: 12px 20px max(16px, env(safe-area-inset-bottom, 16px));
   background: var(--bg-main);
   border-top: 1px solid var(--border);
   flex-shrink: 0;
@@ -556,15 +558,30 @@
 /* Responsive Rules */
 @media (max-width: 768px) {
   .classroom-header-inner {
-    padding: 0 14px;
+    padding: 0 12px;
+    gap: 10px;
   }
 
   .classroom-brand-logo {
-    height: 36px;
+    height: 32px;
+  }
+
+  .classroom-topic-center {
+    flex: 1;
+    min-width: 0;
   }
 
   .active-topic-name {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .topic-category-pill {
+    font-size: 0.65rem;
+    padding: 1px 6px;
   }
 
   .end-session-btn span {
@@ -572,7 +589,7 @@
   }
 
   .end-session-btn {
-    padding: 8px;
+    padding: 7px 10px;
   }
 
   .classroom-tip-box {
@@ -580,15 +597,58 @@
   }
 
   .student-profile-banner {
-    margin: 10px 14px 0;
-    padding: 10px 14px;
+    margin: 8px 12px 0;
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .student-robot-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .student-name {
+    font-size: 0.92rem;
+  }
+
+  .student-bio {
+    display: none;
   }
 
   .chat-viewport {
-    padding: 14px;
+    padding: 12px;
+    gap: 14px;
   }
 
   .chat-input-sticky-footer {
-    padding: 10px 14px 12px;
+    padding: 8px 12px max(12px, env(safe-area-inset-bottom, 12px));
+  }
+}
+
+@media (max-width: 480px) {
+  .classroom-header-inner {
+    padding: 0 8px;
+  }
+
+  .active-topic-name {
+    max-width: 125px;
+    font-size: 0.88rem;
+  }
+
+  .chat-welcome-card {
+    padding: 14px 16px;
+  }
+
+  .welcome-card-header h4 {
+    font-size: 0.95rem;
+  }
+
+  .welcome-card-text {
+    font-size: 0.85rem;
+  }
+
+  .prompt-chip-btn {
+    font-size: 0.78rem;
+    padding: 5px 10px;
   }
 }

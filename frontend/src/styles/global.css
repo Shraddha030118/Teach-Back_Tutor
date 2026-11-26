@@ -132,6 +132,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--bg-main);
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -146,8 +148,12 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
   transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -160,17 +166,22 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  touch-action: manipulation;
 }
 
 .app-container {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-main);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .main-content {
   flex: 1;
+  width: 100%;
 }
 
 .container {
@@ -178,6 +189,18 @@ button {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
 }
 
 /* Badge Styles */

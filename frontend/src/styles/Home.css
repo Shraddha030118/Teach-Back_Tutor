@@ -228,3 +228,37 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 640px) {
+  .start-learning-section {
+    padding: 50px 0;
+  }
+
+  .start-learning-card {
+    padding: 22px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .topic-form {
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .topic-text-input {
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+
+  .persona-card {
+    padding: 14px;
+  }
+
+  .start-session-submit-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .curated-presets-section {
+    padding-top: 24px;
+  }
+}

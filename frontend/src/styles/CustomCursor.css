@@ -252,7 +252,7 @@
 }
 
 /* 8. Touchscreens & Mobile Devices (Completely Disabled) */
-@media (pointer: coarse), (hover: none) {
+@media (pointer: coarse), (hover: none), (max-width: 768px) {
   .magnetic-cursor-spotlight,
   .magnetic-cursor-canvas,
   .cursor-click-ripple,

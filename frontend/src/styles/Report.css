@@ -610,6 +610,56 @@
   }
 }
 
+@media (max-width: 640px) {
+  .report-header-banner {
+    margin: 24px auto 18px;
+    padding: 0 10px;
+  }
+
+  .report-title {
+    font-size: 1.85rem;
+  }
+
+  .report-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .report-hero-card {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .score-dial-circle {
+    width: 96px;
+    height: 96px;
+  }
+
+  .dial-score-num {
+    font-size: 2.1rem;
+  }
+
+  .criterion-card {
+    padding: 18px 14px;
+  }
+
+  .insight-card {
+    padding: 18px 14px;
+  }
+
+  .report-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .report-actions-row .btn,
+  .report-actions-row a,
+  .report-actions-row button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Print Stylesheet */
 @media print {
   .no-print,

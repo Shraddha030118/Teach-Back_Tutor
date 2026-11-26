@@ -598,16 +598,16 @@
   padding: 12px 14px;
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--text-secondary, #64748b);
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  border-bottom: 1.5px solid var(--border-light, #e2e8f0);
+  border-bottom: 1px solid var(--border);
 }
 
 .sessions-table td {
   padding: 14px;
-  border-bottom: 1px solid var(--border-light, #f1f5f9);
-  color: var(--text-main, #1e293b);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
 }
 
 .sessions-table tr:hover td {
@@ -689,5 +689,58 @@
   .dashboard-actions > * {
     flex: 1;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-page-container {
+    padding: 24px 14px 60px;
+  }
+
+  .dashboard-title {
+    font-size: 1.85rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .metrics-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 16px 14px;
+  }
+
+  .metric-value {
+    font-size: 1.7rem;
+  }
+
+  .chart-card {
+    padding: 16px 10px;
+    border-radius: var(--radius-md);
+  }
+
+  .chart-title {
+    font-size: 1rem;
+  }
+
+  .chart-desc {
+    font-size: 0.8rem;
+  }
+
+  .insights-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-actions > * {
+    width: 100%;
   }
 }

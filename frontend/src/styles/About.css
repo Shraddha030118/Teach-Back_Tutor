@@ -1,6 +1,6 @@
 .about-section {
   padding: 100px 0 110px;
-  background-color: #ffffff;
+  background-color: var(--bg-main);
 }
 
 .about-narrative-grid {
@@ -43,14 +43,15 @@
 
 /* Quote Card */
 .about-quote-card {
-  background: linear-gradient(145deg, #1e1b4b 0%, #31104b 100%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 40px;
-  color: #ffffff;
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
 }
@@ -62,12 +63,12 @@
   right: 0;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(89, 86, 214, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .quote-icon-wrapper {
-  color: var(--accent-gold);
+  color: var(--accent);
   margin-bottom: 20px;
 }
 
@@ -77,14 +78,14 @@
   line-height: 1.6;
   font-style: italic;
   margin-bottom: 28px;
-  color: #f8fafc;
+  color: var(--text-main);
 }
 
 .quote-author strong {
   display: block;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .quote-author span {

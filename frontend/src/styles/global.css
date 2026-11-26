@@ -1,115 +1,133 @@
+/* ========================================================
+   Teach-Back Tutor — Unified Design System & Tokens
+   Modern, Clean, Minimalist Educational SaaS UI
+   ======================================================== */
+
 :root {
-  /* Brand Educational Palette: Modern Electric Indigo, Vivid Violet & Cyber Cyan */
-  --brand-purple: #5b4df5;
-  --brand-purple-dark: #4335e6;
-  --brand-purple-light: #7c6ff7;
-  --brand-purple-subtle: #f0eeff;
-  --brand-indigo: #4f46e5;
-  --brand-violet: #7c3aed;
-  --brand-cyan: #06b6d4;
-  --brand-gradient: linear-gradient(135deg, #5b4df5 0%, #7c3aed 50%, #06b6d4 100%);
-  --brand-glow: rgba(91, 77, 245, 0.25);
+  /* --------------------------------------------------------
+     Exact Light Theme Palette
+     -------------------------------------------------------- */
+  --bg-main: #F7F7FC;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F2F1FA;
+  --bg-alt: #EFEFF6;
+  --bg-header: rgba(247, 247, 252, 0.94);
+  --bg-dark: #25243A;
+
+  --primary: #5956D6;
+  --primary-hover: #4744b8;
+  --primary-light: #7976e3;
+  --secondary: #E9E7FF;
+  --secondary-hover: #ddd9ff;
+  --accent: #20B8A5;
+  --accent-light: rgba(32, 184, 165, 0.12);
+  --accent-hover: #199c8b;
+
+  --text-main: #25243A;
+  --text-secondary: #77778C;
+  --text-muted: #9594A8;
+  --text-inverse: #FFFFFF;
+
+  --border: #E8E8F0;
+  --border-light: #E8E8F0;
+  --border-focus: #5956D6;
+
+  /* Aliases for backwards compatibility with existing components */
+  --brand-purple: #5956D6;
+  --brand-purple-dark: #4744b8;
+  --brand-purple-light: #7976e3;
+  --brand-purple-subtle: #E9E7FF;
+  --brand-indigo: #5956D6;
+  --brand-violet: #6b68e0;
+  --brand-cyan: #20B8A5;
+  --brand-gradient: linear-gradient(135deg, #5956D6 0%, #7976e3 100%);
+  --brand-glow: rgba(89, 86, 214, 0.18);
 
   --accent-gold: #f59e0b;
   --accent-gold-light: #fef3c7;
   --accent-gold-dark: #d97706;
-  --accent-teal: #0d9488;
-  --accent-teal-light: #ccfbf1;
-  --accent-cyan: #06b6d4;
-  --accent-emerald: #10b981;
-  --accent-blue: #2563eb;
+  --accent-teal: #20B8A5;
+  --accent-teal-light: rgba(32, 184, 165, 0.12);
+  --accent-emerald: #20B8A5;
+  --accent-blue: #5956D6;
 
-  /* Neutral Surface Palette: Light Mode */
-  --bg-main: #f8f9fe;
-  --bg-surface: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #fafbff;
-  --bg-alt: #f1f3fa;
-  --bg-dark: #0a0f1d;
-  --bg-header: rgba(255, 255, 255, 0.92);
+  /* Elevation Shadows — Clean & Subtle */
+  --shadow-sm: 0 1px 2px rgba(37, 36, 58, 0.04);
+  --shadow-md: 0 4px 12px rgba(37, 36, 58, 0.06);
+  --shadow-lg: 0 10px 24px rgba(37, 36, 58, 0.08);
+  --shadow-xl: 0 16px 36px rgba(37, 36, 58, 0.1);
+  --shadow-glow: 0 0 24px rgba(89, 86, 214, 0.2);
 
-  /* Typography Colors */
-  --text-main: #0c1222;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --text-inverse: #ffffff;
-
-  /* Borders & Dividers */
-  --border-light: #e2e8f0;
-  --border-purple: #e0dcfc;
-  --border-focus: #5b4df5;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 10px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 12px 30px -5px rgba(91, 77, 245, 0.1), 0 8px 12px -6px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 20px 40px -10px rgba(91, 77, 245, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 30px rgba(91, 77, 245, 0.2);
-
-  /* Radii */
+  /* Border Radii */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* Fonts */
+  /* Typography */
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* ========================================================
-   Dark Theme Definition
-   ======================================================== */
+/* --------------------------------------------------------
+   Exact Dark Theme Palette
+   -------------------------------------------------------- */
 [data-theme="dark"] {
-  /* Brand Color System: Luminous in Dark Mode */
-  --brand-purple: #6d5df6;
-  --brand-purple-dark: #5b4df5;
-  --brand-purple-light: #8b7ef8;
-  --brand-purple-subtle: rgba(109, 93, 246, 0.16);
-  --brand-indigo: #6366f1;
-  --brand-violet: #8b5cf6;
-  --brand-cyan: #38bdf8;
-  --brand-gradient: linear-gradient(135deg, #6d5df6 0%, #a78bfa 50%, #38bdf8 100%);
-  --brand-glow: rgba(109, 93, 246, 0.4);
+  --bg-main: #121321;
+  --bg-surface: #1D1F32;
+  --bg-card: #1D1F32;
+  --bg-card-hover: #262942;
+  --bg-alt: #171829;
+  --bg-header: rgba(18, 19, 33, 0.94);
+  --bg-dark: #0a0b12;
+
+  --primary: #9290FF;
+  --primary-hover: #a5a3ff;
+  --primary-light: #b3b1ff;
+  --secondary: #302D50;
+  --secondary-hover: #3d3a63;
+  --accent: #45D6C0;
+  --accent-light: rgba(69, 214, 192, 0.15);
+  --accent-hover: #5be3ce;
+
+  --text-main: #F4F3FF;
+  --text-secondary: #AAA9C0;
+  --text-muted: #82819c;
+  --text-inverse: #121321;
+
+  --border: #303148;
+  --border-light: #303148;
+  --border-focus: #9290FF;
+
+  /* Aliases */
+  --brand-purple: #9290FF;
+  --brand-purple-dark: #a5a3ff;
+  --brand-purple-light: #b3b1ff;
+  --brand-purple-subtle: #302D50;
+  --brand-indigo: #9290FF;
+  --brand-violet: #a5a3ff;
+  --brand-cyan: #45D6C0;
+  --brand-gradient: linear-gradient(135deg, #9290FF 0%, #b3b1ff 100%);
+  --brand-glow: rgba(146, 144, 255, 0.25);
 
   --accent-gold: #fbbf24;
   --accent-gold-light: rgba(251, 191, 36, 0.15);
   --accent-gold-dark: #f59e0b;
-  --accent-teal: #14b8a6;
-  --accent-teal-light: rgba(20, 184, 166, 0.15);
-  --accent-cyan: #38bdf8;
-  --accent-emerald: #34d399;
-  --accent-blue: #3b82f6;
+  --accent-teal: #45D6C0;
+  --accent-teal-light: rgba(69, 214, 192, 0.15);
+  --accent-emerald: #45D6C0;
+  --accent-blue: #9290FF;
 
-  /* Surfaces: Deep Slate & Obsidian */
-  --bg-main: #090d16;
-  --bg-surface: #0f1524;
-  --bg-card: #131b2e;
-  --bg-card-hover: #18233c;
-  --bg-alt: #172036;
-  --bg-dark: #050810;
-  --bg-header: rgba(15, 21, 36, 0.92);
-
-  /* Typography */
-  --text-main: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-inverse: #090d16;
-
-  /* Borders & Dividers */
-  --border-light: rgba(255, 255, 255, 0.09);
-  --border-purple: rgba(109, 93, 246, 0.28);
-  --border-focus: #6d5df6;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 14px 35px rgba(0, 0, 0, 0.65), 0 0 20px rgba(109, 93, 246, 0.15);
-  --shadow-xl: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(109, 93, 246, 0.25);
-  --shadow-glow: 0 0 35px rgba(109, 93, 246, 0.35);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 28px rgba(146, 144, 255, 0.3);
 }
 
+/* Reset & Base HTML */
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -129,7 +147,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 a {
@@ -157,7 +175,7 @@ button {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -166,107 +184,104 @@ button {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
+  gap: 6px;
+  padding: 5px 12px;
   border-radius: var(--radius-full);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .badge-purple {
-  background-color: var(--brand-purple-subtle);
-  color: var(--brand-purple);
-  border: 1px solid var(--border-purple);
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
-.badge-gold {
-  background-color: var(--accent-gold-light);
-  color: var(--accent-gold-dark);
+.badge-accent {
+  background-color: var(--accent-light);
+  color: var(--accent);
 }
 
-/* Button System */
+/* Button System — Modern SaaS Flat & Crisp */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: var(--radius-md);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  border: 1px solid transparent;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--brand-purple) 0%, #7c3aed 100%);
+  background-color: var(--primary);
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(91, 77, 245, 0.35);
+  box-shadow: 0 2px 8px rgba(89, 86, 214, 0.25);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(91, 77, 245, 0.45);
-  background: linear-gradient(135deg, var(--brand-purple-light) 0%, var(--brand-purple) 100%);
+  transform: translateY(-1px);
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 14px rgba(89, 86, 214, 0.35);
 }
 
 .btn-secondary {
-  background-color: var(--bg-card);
-  color: var(--text-main);
-  border: 1.5px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-color: var(--border);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-surface);
-  border-color: var(--brand-purple-light);
-  color: var(--brand-purple);
-  transform: translateY(-2px);
+  background-color: var(--secondary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(32, 184, 165, 0.25);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
 .btn-lg {
-  padding: 16px 32px;
-  font-size: 1.05rem;
+  padding: 14px 28px;
+  font-size: 1rem;
   border-radius: var(--radius-lg);
 }
 
-/* Section Header Utility */
-.section-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 56px auto;
+/* Focus Visible for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
-.section-tag {
-  margin-bottom: 14px;
+/* Global Card Container */
+.saas-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.section-title {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.section-title .text-gradient {
-  background: linear-gradient(135deg, var(--brand-purple) 0%, #8b5cf6 50%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+.saas-card:hover {
+  box-shadow: var(--shadow-md);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -274,22 +289,13 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: var(--text-muted);
   border-radius: 9999px;
-}
-
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: #334155;
+  opacity: 0.5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-purple);
-}
-
-/* Focus Visible for Accessibility */
-:focus-visible {
-  outline: 2px solid var(--brand-purple);
-  outline-offset: 2px;
+  background: var(--primary);
 }
 
 /* Global Error Banner */
@@ -311,7 +317,7 @@ button {
 
 [data-theme="dark"] .error-banner,
 [data-theme="dark"] .session-error-banner {
-  background: rgba(185, 28, 28, 0.15);
+  background: rgba(220, 38, 38, 0.15);
   border-color: rgba(239, 68, 68, 0.3);
   color: #fca5a5;
 }
@@ -335,7 +341,7 @@ button {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: var(--brand-purple);
+  background-color: var(--primary);
   animation: dotPulse 1.4s infinite ease-in-out both;
 }
 

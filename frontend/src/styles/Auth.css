@@ -6,20 +6,18 @@
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(79, 40, 217, 0.05) 0%, transparent 40%),
-              var(--bg-light, #f8fafc);
+  background: var(--bg-main);
+  color: var(--text-main);
 }
 
 .auth-card {
   width: 100%;
   max-width: 460px;
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: var(--radius-xl, 20px);
   padding: 40px;
-  box-shadow: 0 16px 40px -10px rgba(79, 40, 217, 0.09),
-              0 0 1px 1px rgba(79, 40, 217, 0.05);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -132,9 +130,9 @@
   width: 100%;
   padding: 12px 14px 12px 42px;
   font-size: 0.95rem;
-  color: var(--text-main, #0f172a);
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
+  color: var(--text-main);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md, 10px);
   transition: all 0.2s ease;
   font-family: inherit;
@@ -142,8 +140,8 @@
 
 .form-input:focus {
   outline: none;
-  border-color: var(--brand-purple, #4f28d9);
-  box-shadow: 0 0 0 3px rgba(79, 40, 217, 0.12);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(89, 86, 214, 0.15);
 }
 
 .form-input.has-right-icon {

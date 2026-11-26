@@ -1,41 +1,12 @@
 .hero-section {
   position: relative;
-  padding: 60px 0 90px;
-  background: radial-gradient(circle at 10% 20%, rgba(244, 240, 255, 0.7) 0%, rgba(255, 255, 255, 1) 70%);
+  padding: 56px 0 84px;
+  background-color: var(--bg-main);
   overflow: hidden;
 }
 
 .hero-bg-decoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.45;
-}
-
-.blob-purple {
-  width: 480px;
-  height: 480px;
-  background: #c4b5fd;
-  top: -100px;
-  right: -50px;
-}
-
-.blob-gold {
-  width: 380px;
-  height: 380px;
-  background: #fde68a;
-  bottom: -60px;
-  left: -80px;
+  display: none;
 }
 
 .hero-container {
@@ -55,35 +26,38 @@
 
 .hero-tag {
   align-self: flex-start;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(79, 40, 217, 0.08);
+  margin-bottom: 18px;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
 }
 
 .hero-heading {
-  font-size: clamp(2.4rem, 4.2vw, 3.5rem);
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--text-main);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .hero-heading .text-gradient {
-  background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-violet) 70%, #9333ea 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
 .hero-description {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 34px;
+  line-height: 1.65;
+  margin-bottom: 32px;
   max-width: 580px;
 }
 
 .hero-description strong {
-  color: var(--brand-purple);
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -91,12 +65,12 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 38px;
+  margin-bottom: 36px;
   flex-wrap: wrap;
 }
 
 .hero-primary-btn {
-  padding: 16px 34px;
+  padding: 14px 30px;
 }
 
 .hero-metrics {
@@ -116,7 +90,7 @@
 }
 
 .metric-icon-success {
-  color: #10b981;
+  color: var(--accent);
 }
 
 /* Visual Illustration Column */
@@ -128,16 +102,16 @@
 
 .hero-illustration-card {
   position: relative;
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: var(--radius-xl);
   padding: 24px;
-  box-shadow: var(--shadow-xl), var(--shadow-glow);
-  border: 1px solid rgba(79, 40, 217, 0.12);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
 }
 
 .hero-illustration-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
 }
 
 .illustration-wrapper {
@@ -155,25 +129,19 @@
   aspect-ratio: 1024 / 682;
   display: block;
   object-fit: contain;
-  transition: transform 0.5s ease;
-}
-
-.hero-illustration-card:hover .hero-main-img {
-  transform: scale(1.02);
 }
 
 /* Floating Micro Cards */
 .floating-card {
   position: absolute;
-  background: #ffffff;
+  background: var(--bg-card);
   padding: 12px 18px;
   border-radius: var(--radius-md);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 12px;
-  animation: floatCard 4s ease-in-out infinite;
   z-index: 2;
 }
 
@@ -185,15 +153,14 @@
 .floating-card-bottom {
   bottom: -20px;
   right: -20px;
-  animation-delay: 2s;
 }
 
 .float-icon-gold {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm);
-  background: var(--accent-gold-light);
-  color: var(--accent-gold-dark);
+  background: var(--accent-light);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,8 +170,8 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm);
-  background: var(--brand-purple-subtle);
-  color: var(--brand-purple);
+  background: var(--secondary);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,19 +196,10 @@
   color: var(--text-main);
 }
 
-@keyframes floatCard {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
 @media (max-width: 968px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 44px;
     text-align: center;
   }
 
@@ -254,7 +212,7 @@
   }
 
   .hero-description {
-    margin: 0 auto 30px auto;
+    margin: 0 auto 28px auto;
   }
 
   .hero-cta-group {

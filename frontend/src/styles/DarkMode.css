@@ -5,7 +5,7 @@
 
 /* 1. Global Page Wrappers & Containers */
 [data-theme="dark"] .app-container {
-  background-color: var(--bg-main, #090d16);
+  background-color: var(--bg-main, #121321);
   color: var(--text-main, #f8fafc);
 }
 
@@ -71,7 +71,7 @@
 }
 
 [data-theme="dark"] .mobile-drawer {
-  background: #0f1524;
+  background: #1D1F32;
   border-bottom-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
@@ -82,19 +82,19 @@
 }
 
 [data-theme="dark"] .mobile-user-card {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="dark"] .mobile-login-btn {
-  background: #172036;
+  background: #302D50;
   border-color: rgba(255, 255, 255, 0.1);
   color: #f8fafc;
 }
 
 /* 3. Homepage (Hero, How It Works, About, Footer) */
 [data-theme="dark"] .hero-section {
-  background: radial-gradient(circle at 10% 20%, rgba(109, 93, 246, 0.15) 0%, #090d16 70%);
+  background: radial-gradient(circle at 10% 20%, rgba(109, 93, 246, 0.15) 0%, #121321 70%);
 }
 
 [data-theme="dark"] .blob-purple {
@@ -113,7 +113,7 @@
 [data-theme="dark"] .stat-card,
 [data-theme="dark"] .feature-card,
 [data-theme="dark"] .about-card {
-  background: #131b2e !important;
+  background: #1D1F32 !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
@@ -128,11 +128,11 @@
 [data-theme="dark"] .how-it-works-section,
 [data-theme="dark"] .about-section,
 [data-theme="dark"] .features-section {
-  background-color: #090d16;
+  background-color: #121321;
 }
 
 [data-theme="dark"] .landing-footer {
-  background-color: #060911;
+  background-color: #121321;
   border-top-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -151,7 +151,7 @@
 
 /* 4. Topic Selection Page */
 [data-theme="dark"] .topic-selection-page {
-  background: radial-gradient(circle at 50% 0%, rgba(109, 93, 246, 0.14) 0%, #090d16 60%, #060911 100%);
+  background: radial-gradient(circle at 50% 0%, rgba(109, 93, 246, 0.14) 0%, #121321 60%, #121321 100%);
 }
 
 [data-theme="dark"] .topic-nav-strip {
@@ -160,7 +160,7 @@
 }
 
 [data-theme="dark"] .back-btn {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   color: #cbd5e1;
 }
@@ -172,7 +172,7 @@
 }
 
 [data-theme="dark"] .category-pill {
-  background: #131b2e;
+  background: #1D1F32;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #94a3b8;
 }
@@ -195,7 +195,7 @@
 }
 
 [data-theme="dark"] .topic-search-container {
-  background-color: #131b2e !important;
+  background-color: #1D1F32 !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
@@ -204,7 +204,7 @@
 }
 
 [data-theme="dark"] .topic-card {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
@@ -230,12 +230,12 @@
 }
 
 [data-theme="dark"] .custom-topic-card {
-  background: linear-gradient(135deg, rgba(109, 93, 246, 0.12) 0%, #131b2e 100%);
+  background: linear-gradient(135deg, rgba(109, 93, 246, 0.12) 0%, #1D1F32 100%);
   border-color: rgba(109, 93, 246, 0.35);
 }
 
 [data-theme="dark"] .custom-topic-input {
-  background: #172036;
+  background: #302D50;
   border-color: rgba(255, 255, 255, 0.12);
   color: #f8fafc;
 }
@@ -246,61 +246,64 @@
 
 /* 5. Classroom & Chat Session Page */
 [data-theme="dark"] .classroom-session-page {
-  background-color: #090d16;
+  background-color: var(--bg-main, #121321);
+  color: var(--text-main, #F4F3FF);
 }
 
 [data-theme="dark"] .classroom-header {
-  background: rgba(15, 21, 36, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  background: var(--bg-header, rgba(18, 19, 33, 0.94));
+  border-bottom-color: var(--border, #303148);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="dark"] .active-topic-name {
-  color: #f8fafc;
+  color: var(--text-main, #F4F3FF);
 }
 
 [data-theme="dark"] .topic-category-pill {
-  background-color: rgba(109, 93, 246, 0.18);
-  color: #c4b5fd;
-  border-color: rgba(109, 93, 246, 0.3);
+  background-color: var(--secondary, #302D50);
+  color: var(--primary, #9290FF);
+  border-color: var(--border, #303148);
 }
 
 [data-theme="dark"] .student-profile-banner {
-  background: linear-gradient(135deg, rgba(109, 93, 246, 0.14) 0%, #131b2e 100%);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--bg-card, #1D1F32);
+  border-color: var(--border, #303148);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="dark"] .student-name {
-  color: #f8fafc;
+  color: var(--text-main, #F4F3FF);
 }
 
 [data-theme="dark"] .student-bio {
-  color: #94a3b8;
+  color: var(--text-secondary, #AAA9C0);
 }
 
 [data-theme="dark"] .classroom-tip-box {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.08);
-  color: #cbd5e1;
+  background: var(--secondary, #302D50);
+  border-color: var(--border, #303148);
+  color: var(--primary, #9290FF);
 }
 
 [data-theme="dark"] .chat-welcome-card {
-  background: #131b2e;
-  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--bg-card, #1D1F32);
+  border-color: var(--border, #303148);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="dark"] .prompt-chip-btn,
 [data-theme="dark"] .starter-prompt-btn {
-  background: #172036 !important;
-  border-color: rgba(139, 92, 246, 0.25) !important;
-  color: #cbd5e1 !important;
+  background: var(--secondary, #302D50) !important;
+  border-color: var(--border, #303148) !important;
+  color: var(--text-main, #F4F3FF) !important;
 }
 
 [data-theme="dark"] .prompt-chip-btn:hover,
 [data-theme="dark"] .starter-prompt-btn:hover {
-  background: rgba(109, 93, 246, 0.25) !important;
-  border-color: var(--brand-purple) !important;
-  color: #ffffff !important;
+  background: var(--secondary-hover, #3d3a63) !important;
+  border-color: var(--primary, #9290FF) !important;
+  color: var(--primary, #9290FF) !important;
 }
 
 /* Chat Messages */
@@ -308,82 +311,83 @@
 [data-theme="dark"] .message-bubble.student-bubble,
 [data-theme="dark"] .message-bubble.student,
 [data-theme="dark"] .chat-bubble.student {
-  background: #141c2e !important;
-  border: 1px solid rgba(139, 92, 246, 0.25) !important;
-  color: #f1f5f9 !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4) !important;
+  background: var(--bg-card, #1D1F32) !important;
+  border: 1px solid var(--border, #303148) !important;
+  border-left: 4px solid var(--primary, #9290FF) !important;
+  color: var(--text-main, #F4F3FF) !important;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 [data-theme="dark"] .student-bubble::before {
-  background: linear-gradient(180deg, #8b5cf6 0%, #6366f1 100%);
+  display: none !important;
 }
 
 [data-theme="dark"] .student-bubble .bubble-text {
-  color: #e2e8f0;
+  color: var(--text-main, #F4F3FF) !important;
 }
 
 [data-theme="dark"] .teacher-bubble,
 [data-theme="dark"] .message-bubble.teacher-bubble,
 [data-theme="dark"] .message-bubble.teacher,
 [data-theme="dark"] .chat-bubble.teacher {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  color: #ffffff;
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+  background: var(--primary, #9290FF) !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 [data-theme="dark"] .sender-display-name,
 [data-theme="dark"] .message-sender-name {
-  color: #f1f5f9;
+  color: var(--text-main, #F4F3FF) !important;
 }
 
 [data-theme="dark"] .student-pill {
-  background: rgba(139, 92, 246, 0.16);
-  color: #c4b5fd;
-  border-color: rgba(139, 92, 246, 0.3);
+  background: var(--secondary, #302D50) !important;
+  color: var(--primary, #9290FF) !important;
+  border-color: var(--border, #303148) !important;
 }
 
 [data-theme="dark"] .message-timestamp,
 [data-theme="dark"] .message-time {
-  color: #64748b;
+  color: var(--text-secondary, #AAA9C0) !important;
 }
 
 [data-theme="dark"] .thinking-bubble {
-  background: #141c2e !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: var(--bg-card, #1D1F32) !important;
+  border-color: var(--border, #303148) !important;
 }
 
 [data-theme="dark"] .typing-dots-animation span {
-  background-color: #a78bfa;
+  background-color: var(--primary, #9290FF) !important;
 }
 
 /* Chat Input Bar & Sticky Footer */
 [data-theme="dark"] .chat-input-sticky-footer,
 [data-theme="dark"] .classroom-input-bar {
-  background: #090d16 !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: var(--bg-main, #121321) !important;
+  border-top: 1px solid var(--border, #303148) !important;
 }
 
 [data-theme="dark"] .chat-input-card {
-  background: #131b2e !important;
-  border: 1.5px solid rgba(139, 92, 246, 0.25) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  background: var(--bg-card, #1D1F32) !important;
+  border: 1px solid var(--border, #303148) !important;
+  box-shadow: var(--shadow-sm) !important;
 }
 
 [data-theme="dark"] .chat-input-card:focus-within {
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2), 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary, #9290FF) !important;
+  box-shadow: 0 0 0 3px rgba(146, 144, 255, 0.2) !important;
 }
 
 [data-theme="dark"] .chat-textarea-field,
 [data-theme="dark"] .chat-textarea,
 [data-theme="dark"] .classroom-textarea {
-  color: #f8fafc;
-  background: transparent;
+  color: var(--text-main, #F4F3FF) !important;
+  background: transparent !important;
 }
 
 [data-theme="dark"] .chat-textarea-field::placeholder,
 [data-theme="dark"] .chat-textarea::placeholder {
-  color: #64748b;
+  color: var(--text-secondary, #AAA9C0) !important;
 }
 
 [data-theme="dark"] .input-actions-bar {
@@ -399,46 +403,47 @@
 }
 
 [data-theme="dark"] .chat-send-btn {
-  background-color: rgba(139, 92, 246, 0.16);
-  color: #c4b5fd;
+  background-color: var(--secondary, #302D50);
+  color: var(--text-secondary, #AAA9C0);
+  border: 1px solid var(--border, #303148);
 }
 
 [data-theme="dark"] .chat-send-btn.active {
-  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+  background: var(--primary, #9290FF);
+  color: #121321;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Voice Input Dark Mode Styling */
 [data-theme="dark"] .chat-input-card.voice-recording-active {
-  border-color: #a78bfa !important;
-  background: #172036 !important;
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25), 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+  border-color: var(--primary, #9290FF) !important;
+  background: var(--bg-card, #1D1F32) !important;
+  box-shadow: 0 0 0 3px rgba(146, 144, 255, 0.25) !important;
 }
 
 [data-theme="dark"] .voice-recording-strip {
-  background: rgba(139, 92, 246, 0.16);
-  border-color: rgba(139, 92, 246, 0.35);
+  background: var(--secondary, #302D50);
+  border-color: var(--border, #303148);
 }
 
 [data-theme="dark"] .voice-status-text {
-  color: #c4b5fd;
+  color: var(--primary, #9290FF);
 }
 
 [data-theme="dark"] .soundwave-bar {
-  background: linear-gradient(180deg, #a78bfa 0%, #818cf8 100%);
+  background: var(--primary, #9290FF);
 }
 
 [data-theme="dark"] .voice-mic-btn {
-  background-color: rgba(139, 92, 246, 0.16);
-  color: #c4b5fd;
-  border-color: rgba(139, 92, 246, 0.25);
+  background-color: var(--secondary, #302D50);
+  color: var(--primary, #9290FF);
+  border-color: var(--border, #303148);
 }
 
 [data-theme="dark"] .voice-mic-btn:hover:not(:disabled) {
-  background-color: rgba(139, 92, 246, 0.28);
-  color: #ede9fe;
-  border-color: #a78bfa;
+  background-color: var(--secondary-hover, #3d3a63);
+  color: var(--primary-hover, #a5a3ff);
+  border-color: var(--primary, #9290FF);
 }
 
 [data-theme="dark"] .voice-mic-btn.recording {
@@ -482,7 +487,7 @@
 
 [data-theme="dark"] .end-session-modal,
 [data-theme="dark"] .modal-content {
-  background: #131b2e;
+  background: #1D1F32;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
   color: #f8fafc;
@@ -503,7 +508,7 @@
 }
 
 [data-theme="dark"] .evaluating-card {
-  background: #131b2e;
+  background: #1D1F32;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
   color: #f8fafc;
@@ -528,7 +533,7 @@
 
 /* 6. Evaluation Report Page */
 [data-theme="dark"] .report-page-wrapper {
-  background: radial-gradient(circle at 50% 0%, rgba(109, 93, 246, 0.15) 0%, #090d16 60%, #060911 100%);
+  background: radial-gradient(circle at 50% 0%, rgba(109, 93, 246, 0.15) 0%, #121321 60%, #121321 100%);
 }
 
 [data-theme="dark"] .report-top-strip {
@@ -537,7 +542,7 @@
 }
 
 [data-theme="dark"] .back-home-link {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   color: #cbd5e1;
 }
@@ -554,13 +559,13 @@
 [data-theme="dark"] .report-section-card,
 [data-theme="dark"] .feedback-card,
 [data-theme="dark"] .score-card {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .metric-gauge-card {
-  background: #172036;
+  background: #302D50;
   border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -579,7 +584,7 @@
 }
 
 [data-theme="dark"] .transcript-accordion {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -589,13 +594,13 @@
 }
 
 [data-theme="dark"] .transcript-item.student {
-  background: #172036;
+  background: #302D50;
   border-left-color: #38bdf8;
 }
 
 /* 7. History Page */
 [data-theme="dark"] .history-page-wrapper {
-  background: radial-gradient(circle at 50% 0%, rgba(109, 93, 246, 0.12) 0%, #090d16 60%, #060911 100%);
+  background: radial-gradient(circle at 50% 0%, rgba(109, 93, 246, 0.12) 0%, #121321 60%, #121321 100%);
 }
 
 [data-theme="dark"] .history-top-strip {
@@ -604,13 +609,13 @@
 }
 
 [data-theme="dark"] .history-back-btn {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   color: #cbd5e1;
 }
 
 [data-theme="dark"] .metric-stat-card {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -619,7 +624,7 @@
 }
 
 [data-theme="dark"] .history-card {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
@@ -635,13 +640,13 @@
 }
 
 [data-theme="dark"] .history-search-input {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   color: #f8fafc;
 }
 
 [data-theme="dark"] .filter-btn {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   color: #94a3b8;
 }
@@ -655,11 +660,11 @@
 [data-theme="dark"] .auth-page-container {
   background: radial-gradient(circle at 10% 20%, rgba(109, 93, 246, 0.12) 0%, transparent 40%),
               radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-              #090d16;
+              #121321;
 }
 
 [data-theme="dark"] .auth-card {
-  background: #131b2e;
+  background: #1D1F32;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
@@ -677,7 +682,7 @@
 }
 
 [data-theme="dark"] .form-input {
-  background: #172036;
+  background: #302D50;
   border-color: rgba(255, 255, 255, 0.12);
   color: #f8fafc;
 }
@@ -702,7 +707,7 @@
 
 /* 9. Learning Progress Dashboard */
 [data-theme="dark"] .dashboard-page-container {
-  background-color: #090d16;
+  background-color: #121321;
   color: #f8fafc;
 }
 
@@ -715,7 +720,7 @@
 }
 
 [data-theme="dark"] .dashboard-refresh-btn {
-  background-color: #131b2e;
+  background-color: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   color: #e2e8f0;
 }
@@ -726,13 +731,13 @@
 }
 
 [data-theme="dark"] .dashboard-empty-card {
-  background-color: #131b2e;
+  background-color: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .metric-card {
-  background-color: #131b2e;
+  background-color: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
@@ -754,7 +759,7 @@
 }
 
 [data-theme="dark"] .chart-card {
-  background-color: #131b2e;
+  background-color: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
@@ -768,12 +773,12 @@
 }
 
 [data-theme="dark"] .insights-container {
-  background-color: #131b2e;
+  background-color: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .dashboard-history-section {
-  background-color: #131b2e;
+  background-color: #1D1F32;
   border-color: rgba(255, 255, 255, 0.1);
 }
 

@@ -15,8 +15,8 @@
 /* Step Cards */
 .step-card {
   position: relative;
-  background: #ffffff;
-  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 36px 30px;
   display: flex;
@@ -29,7 +29,7 @@
 .step-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(79, 40, 217, 0.3);
+  border-color: var(--primary);
 }
 
 .step-card-header {

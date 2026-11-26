@@ -7,19 +7,20 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #f8fafc;
+  background-color: var(--bg-main);
+  color: var(--text-main);
   overflow: hidden;
 }
 
 /* 1. Classroom Header */
 .classroom-header {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-header);
   backdrop-filter: blur(14px);
-  border-bottom: 1.5px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
   padding: 10px 0;
   z-index: 50;
   flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-sm);
 }
 
 .classroom-header-inner {
@@ -71,15 +72,15 @@
   letter-spacing: 0.04em;
   padding: 2px 8px;
   border-radius: 9999px;
-  background-color: #f5f3ff;
-  color: #6d28d9;
-  border: 1px solid #ddd6fe;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .active-topic-name {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main);
   letter-spacing: -0.015em;
   margin: 0;
 }
@@ -142,15 +143,15 @@
 
 /* AI Student Profile Banner */
 .student-profile-banner {
-  background: #ffffff;
-  border: 1px solid #ede9fe;
-  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   margin: 14px 20px 0;
   padding: 12px 18px;
   display: flex;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.05);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
 }
 
@@ -163,12 +164,12 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed 0%, #4f28d9 100%);
+  background: var(--primary);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(79, 40, 217, 0.25);
+  box-shadow: var(--shadow-sm);
 }
 
 .student-badge-indicator {
@@ -179,7 +180,7 @@
   height: 12px;
   border-radius: 50%;
   background: #10b981;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--bg-card);
 }
 
 .student-details {
@@ -196,7 +197,7 @@
 .student-name {
   font-size: 1rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main);
   margin: 0;
 }
 
@@ -204,15 +205,15 @@
   font-size: 0.72rem;
   font-weight: 700;
   padding: 2px 8px;
-  background-color: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
   border-radius: 9999px;
 }
 
 .student-bio {
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-secondary);
   font-style: italic;
   margin: 0;
 }
@@ -222,16 +223,16 @@
   align-items: center;
   gap: 6px;
   font-size: 0.78rem;
-  color: #6d28d9;
-  background-color: #f5f3ff;
-  border: 1px solid #ddd6fe;
+  color: var(--primary);
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   max-width: 280px;
 }
 
 .tip-sparkle {
-  color: #7c3aed;
+  color: var(--primary);
   flex-shrink: 0;
 }
 
@@ -266,11 +267,11 @@
 
 /* Welcome Guide Card */
 .chat-welcome-card {
-  background: #f8f6ff;
-  border: 1.5px solid #ddd6fe;
-  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 20px 24px;
-  box-shadow: 0 4px 14px rgba(79, 40, 217, 0.04);
+  box-shadow: var(--shadow-sm);
 }
 
 .welcome-card-header {
@@ -281,25 +282,25 @@
 }
 
 .welcome-bulb {
-  color: #f59e0b;
+  color: var(--accent-gold);
 }
 
 .welcome-card-header h4 {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-main);
   margin: 0;
 }
 
 .welcome-card-text {
   font-size: 0.92rem;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.55;
   margin-bottom: 16px;
 }
 
 .welcome-card-text strong {
-  color: #4f28d9;
+  color: var(--primary);
 }
 
 .starter-prompts-container {
@@ -313,7 +314,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #6d28d9;
+  color: var(--primary);
 }
 
 .prompts-grid {
@@ -323,22 +324,22 @@
 }
 
 .prompt-chip-btn {
-  background: #ede9fe;
-  border: 1px solid #c4b5fd;
-  border-radius: 9999px;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
   padding: 6px 14px;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #5b21b6;
+  color: var(--text-main);
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
 }
 
 .prompt-chip-btn:hover {
-  background: #ddd6fe;
-  border-color: #a78bfa;
-  color: #4c1d95;
+  background: var(--secondary-hover);
+  border-color: var(--primary);
+  color: var(--primary);
   transform: translateY(-1px);
 }
 
@@ -514,8 +515,8 @@
 /* 4. Sticky Input Area */
 .chat-input-sticky-footer {
   padding: 12px 20px 16px;
-  background: #ede9fe;
-  border-top: 1.5px solid #ddd6fe;
+  background: var(--bg-main);
+  border-top: 1px solid var(--border);
   flex-shrink: 0;
 }
 

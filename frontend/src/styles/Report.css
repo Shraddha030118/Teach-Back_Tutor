@@ -10,15 +10,16 @@
 
 .report-page-wrapper {
   min-height: 100vh;
-  background: radial-gradient(circle at 50% 0%, #f5f0ff 0%, #ffffff 50%, #faf8ff 100%);
+  background: var(--bg-main);
+  color: var(--text-main);
   padding-bottom: 100px;
 }
 
 /* Top Strip */
 .report-top-strip {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-header);
   backdrop-filter: blur(12px);
-  border-bottom: 1.5px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
   padding: 12px 0;
   position: sticky;
   top: 0;
@@ -37,18 +38,18 @@
   gap: 8px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--text-main);
   padding: 8px 16px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
   transition: all 0.2s ease;
 }
 
 .back-home-link:hover {
-  color: #4f28d9;
-  border-color: #c4b5fd;
-  background: #f5f3ff;
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--secondary);
   transform: translateX(-2px);
 }
 
@@ -78,33 +79,36 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 14px;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .report-title {
   font-size: clamp(2rem, 3.6vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.025em;
-  color: #0f172a;
+  color: var(--text-main);
   line-height: 1.2;
   margin-bottom: 10px;
 }
 
 .report-subtitle {
   font-size: 1.1rem;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .report-subtitle strong {
-  color: #4f28d9;
+  color: var(--primary);
 }
 
 /* 1. Hero Score Card */
 .report-hero-card {
-  background: #ffffff;
-  border: 1.5px solid #ede9fe;
-  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
   padding: 36px 40px;
-  box-shadow: 0 10px 30px -5px rgba(79, 40, 217, 0.08);
+  box-shadow: var(--shadow-sm);
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 40px;
@@ -123,27 +127,27 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 6px solid #4f28d9;
+  border: 6px solid var(--primary);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 24px rgba(79, 40, 217, 0.2);
+  box-shadow: 0 0 20px rgba(89, 86, 214, 0.2);
   margin-bottom: 12px;
-  background: linear-gradient(145deg, #ffffff 0%, #faf8ff 100%);
+  background: var(--bg-card);
 }
 
 .dial-score-num {
   font-size: 2.6rem;
   font-weight: 900;
-  color: #4f28d9;
+  color: var(--primary);
   line-height: 1;
 }
 
 .dial-max {
   font-size: 0.82rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--text-secondary);
 }
 
 .performance-tier-badge {
@@ -156,27 +160,27 @@
 }
 
 .tier-gold {
-  background: #fef3c7;
-  color: #b45309;
-  border: 1px solid #fde68a;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .tier-purple {
-  background: #f5f3ff;
-  color: #6d28d9;
-  border: 1px solid #ddd6fe;
+  background: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .tier-blue {
-  background: #eff6ff;
-  color: #1d4ed8;
-  border: 1px solid #bfdbfe;
+  background: rgba(89, 86, 214, 0.12);
+  color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .tier-amber {
-  background: #fffbeb;
-  color: #d97706;
-  border: 1px solid #fef3c7;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .hero-feedback-text {
@@ -194,14 +198,14 @@
 .feedback-heading-row h3 {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main);
   margin: 0;
 }
 
 .overall-feedback-content {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #334155;
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -214,18 +218,18 @@
 }
 
 .criterion-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 24px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .criterion-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(79, 40, 217, 0.08);
-  border-color: #c4b5fd;
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
 }
 
 .criterion-header {
@@ -238,22 +242,22 @@
 .criterion-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-main);
 }
 
 .criterion-score-badge {
   font-size: 0.95rem;
   font-weight: 800;
-  color: #4f28d9;
-  background: #f5f3ff;
+  color: var(--primary);
+  background: var(--secondary);
   padding: 4px 10px;
-  border-radius: 8px;
-  border: 1px solid #ede9fe;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
 }
 
 .progress-track {
   height: 10px;
-  background-color: #f1f5f9;
+  background-color: var(--secondary);
   border-radius: 9999px;
   overflow: hidden;
   margin-bottom: 14px;
@@ -266,20 +270,20 @@
 }
 
 .progress-purple {
-  background: linear-gradient(90deg, #7c3aed 0%, #4f28d9 100%);
+  background: var(--primary);
 }
 
 .progress-indigo {
-  background: linear-gradient(90deg, #6366f1 0%, #4338ca 100%);
+  background: var(--primary);
 }
 
 .progress-teal {
-  background: linear-gradient(90deg, #0d9488 0%, #059669 100%);
+  background: var(--accent);
 }
 
 .criterion-caption {
   font-size: 0.84rem;
-  color: #64748b;
+  color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
 }
@@ -293,11 +297,11 @@
 }
 
 .insight-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 28px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-sm);
 }
 
 .insight-card-header {
@@ -306,34 +310,34 @@
   gap: 14px;
   margin-bottom: 20px;
   padding-bottom: 14px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--border);
 }
 
 .insight-icon-box {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .icon-box-green {
-  background: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
+  background: rgba(32, 184, 165, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(32, 184, 165, 0.3);
 }
 
 .icon-box-amber {
-  background: #fffbeb;
-  color: #d97706;
-  border: 1px solid #fde68a;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .insight-card-header h3 {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-main);
   margin: 0;
 }
 

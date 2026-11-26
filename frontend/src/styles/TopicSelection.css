@@ -174,28 +174,108 @@
   border-radius: var(--radius-sm);
 }
 
-.badge-science {
-  background-color: var(--secondary);
-  color: var(--primary);
-  border: 1px solid var(--border);
-}
-
-.badge-cs {
-  background-color: var(--secondary);
-  color: var(--primary);
-  border: 1px solid var(--border);
-}
-
-.badge-programming {
-  background-color: var(--secondary);
-  color: var(--primary);
-  border: 1px solid var(--border);
-}
-
+.badge-science,
+.badge-cs,
+.badge-programming,
+.badge-math,
+.badge-aptitude,
+.badge-ai,
 .badge-gk {
+  display: inline-flex;
+  align-items: center;
   background-color: var(--secondary);
   color: var(--primary);
   border: 1px solid var(--border);
+}
+
+/* Search Bar & Empty State */
+.topic-search-wrapper {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.topic-search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 11px 20px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic-search-container:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--brand-glow);
+}
+
+.topic-search-icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.topic-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-family: inherit;
+}
+
+.topic-search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.topic-search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.topic-search-clear:hover {
+  color: var(--text-main);
+  background: var(--secondary);
+}
+
+.topic-empty-state {
+  text-align: center;
+  padding: 56px 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px dashed var(--border);
+  max-width: 540px;
+  margin: 20px auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-empty-icon {
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.topic-empty-state h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.topic-empty-state p {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  margin-bottom: 18px;
 }
 
 .category-topic-count {

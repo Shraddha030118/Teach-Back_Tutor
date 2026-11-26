@@ -3,20 +3,48 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, 
   ArrowRight, 
-  CheckCircle2, 
   Sparkles,
   Leaf, 
   HeartPulse, 
   Sun, 
+  Atom,
+  Dna,
+  FlaskConical,
   Brain, 
   Layers, 
-  Database, 
+  Database,
+  Network,
+  Cpu,
+  ShieldCheck,
+  Cloud,
   Code2, 
   Boxes, 
-  GitBranch, 
+  GitBranch,
+  Binary,
+  Globe,
+  GitCommit,
+  Calculator,
+  TrendingUp,
+  Percent,
+  Hash,
+  Compass,
+  Sigma,
+  Puzzle,
+  Clock,
+  Shuffle,
+  BarChart3,
+  ListOrdered,
+  Users,
+  Bot,
+  SlidersHorizontal,
+  GitFork,
+  Target,
   Landmark, 
   CloudRain, 
   Rocket,
+  Globe2,
+  Coins,
+  Scale,
   GraduationCap,
   BookOpen,
   Check,
@@ -31,6 +59,7 @@ const TOPIC_CATEGORIES = [
   {
     id: 'science',
     name: 'Science',
+    icon: FlaskConical,
     badgeClass: 'badge-science',
     topics: [
       {
@@ -53,21 +82,36 @@ const TOPIC_CATEGORIES = [
         category: 'Science',
         icon: Sun,
         description: 'The Sun, eight planets, moons, asteroids, and orbital mechanics in our cosmic neighborhood.'
+      },
+      {
+        id: 'newtons-laws',
+        title: "Newton's Laws of Motion",
+        category: 'Science',
+        icon: Atom,
+        description: 'Inertia, force-mass acceleration, and action-reaction pairs governing classical mechanics.'
+      },
+      {
+        id: 'cell-structure-mitosis',
+        title: 'Cell Structure & Mitosis',
+        category: 'Science',
+        icon: Dna,
+        description: 'Organelles, eukaryotic vs. prokaryotic cells, and the phases of cellular division.'
+      },
+      {
+        id: 'chemical-bonding',
+        title: 'Chemical Bonding & Periodic Table',
+        category: 'Science',
+        icon: FlaskConical,
+        description: 'Ionic, covalent, and metallic bonds, valence electrons, and periodic trends.'
       }
     ]
   },
   {
     id: 'computer-science',
     name: 'Computer Science',
+    icon: Cpu,
     badgeClass: 'badge-cs',
     topics: [
-      {
-        id: 'artificial-intelligence',
-        title: 'Artificial Intelligence',
-        category: 'Computer Science',
-        icon: Brain,
-        description: 'Machine learning, neural networks, and how modern computer systems simulate human cognition.'
-      },
       {
         id: 'operating-systems',
         title: 'Operating Systems',
@@ -81,12 +125,41 @@ const TOPIC_CATEGORIES = [
         category: 'Computer Science',
         icon: Database,
         description: 'Relational data models, SQL queries, transaction consistency, ACID rules, and index optimization.'
+      },
+      {
+        id: 'computer-networks',
+        title: 'Computer Networks & TCP/IP',
+        category: 'Computer Science',
+        icon: Network,
+        description: 'OSI layers, packet routing, DNS resolution, HTTP protocols, and reliable transport.'
+      },
+      {
+        id: 'computer-architecture',
+        title: 'Computer Architecture & CPU',
+        category: 'Computer Science',
+        icon: Cpu,
+        description: 'Fetch-decode-execute cycles, instruction pipelining, cache hierarchy, and ALU design.'
+      },
+      {
+        id: 'cybersecurity-encryption',
+        title: 'Cybersecurity & Encryption',
+        category: 'Computer Science',
+        icon: ShieldCheck,
+        description: 'Symmetric vs. asymmetric cryptography, hashing, TLS handshakes, and common vulnerabilities.'
+      },
+      {
+        id: 'cloud-computing',
+        title: 'Cloud Computing & Distributed Systems',
+        category: 'Computer Science',
+        icon: Cloud,
+        description: 'Load balancing, horizontal scaling, CAP theorem, microservices, and fault tolerance.'
       }
     ]
   },
   {
     id: 'programming',
     name: 'Programming',
+    icon: Code2,
     badgeClass: 'badge-programming',
     topics: [
       {
@@ -109,12 +182,184 @@ const TOPIC_CATEGORIES = [
         category: 'Programming',
         icon: GitBranch,
         description: 'Arrays, linked lists, stacks, queues, trees, and algorithmic efficiency analysis.'
+      },
+      {
+        id: 'algorithms-bigo',
+        title: 'Algorithms & Big-O Complexity',
+        category: 'Programming',
+        icon: Binary,
+        description: 'Sorting, binary search, recursion, dynamic programming, and time-space tradeoffs.'
+      },
+      {
+        id: 'web-dev-rest-apis',
+        title: 'Web Development & REST APIs',
+        category: 'Programming',
+        icon: Globe,
+        description: 'HTTP methods, status codes, JSON payloads, stateless authentication, and client-server flow.'
+      },
+      {
+        id: 'git-version-control',
+        title: 'Git & Version Control',
+        category: 'Programming',
+        icon: GitCommit,
+        description: 'Commits, branching strategies, merging vs. rebasing, pull requests, and conflict resolution.'
+      }
+    ]
+  },
+  {
+    id: 'mathematics',
+    name: 'Mathematics',
+    icon: Calculator,
+    badgeClass: 'badge-math',
+    topics: [
+      {
+        id: 'linear-algebra',
+        title: 'Linear Algebra & Matrices',
+        category: 'Mathematics',
+        icon: Calculator,
+        description: 'Vectors, matrix transformations, dot products, determinants, and eigenvalues.'
+      },
+      {
+        id: 'calculus-derivatives-integrals',
+        title: 'Calculus: Derivatives & Integrals',
+        category: 'Mathematics',
+        icon: Sigma,
+        description: 'Limits, rates of change, optimization, area under curves, and the fundamental theorem.'
+      },
+      {
+        id: 'probability-bayes',
+        title: "Probability & Bayes' Theorem",
+        category: 'Mathematics',
+        icon: Percent,
+        description: 'Conditional probability, random variables, distributions, and updating beliefs with evidence.'
+      },
+      {
+        id: 'number-theory',
+        title: 'Number Theory & Prime Numbers',
+        category: 'Mathematics',
+        icon: Hash,
+        description: 'Divisibility, modular arithmetic, prime factorization, and Euclidean algorithms.'
+      },
+      {
+        id: 'trigonometry-geometry',
+        title: 'Trigonometry & Geometry',
+        category: 'Mathematics',
+        icon: Compass,
+        description: 'Sine, cosine, unit circle identities, triangles, and spatial coordinate proofs.'
+      },
+      {
+        id: 'differential-equations',
+        title: 'Differential Equations',
+        category: 'Mathematics',
+        icon: TrendingUp,
+        description: 'Modeling continuous change, first-order ODEs, exponential growth, and equilibrium.'
+      }
+    ]
+  },
+  {
+    id: 'aptitude-reasoning',
+    name: 'Aptitude & Reasoning',
+    icon: Puzzle,
+    badgeClass: 'badge-aptitude',
+    topics: [
+      {
+        id: 'logical-syllogisms',
+        title: 'Logical Syllogisms & Deduction',
+        category: 'Aptitude & Reasoning',
+        icon: Puzzle,
+        description: 'Venn diagrams, deductive validity, conditional statements, and logical fallacies.'
+      },
+      {
+        id: 'time-speed-work',
+        title: 'Time, Speed & Work Problems',
+        category: 'Aptitude & Reasoning',
+        icon: Clock,
+        description: 'Relative speed, average velocity, combined work rates, and pipes-and-cisterns logic.'
+      },
+      {
+        id: 'permutations-combinations',
+        title: 'Permutations & Combinations',
+        category: 'Aptitude & Reasoning',
+        icon: Shuffle,
+        description: 'Counting principles, factorials, arrangement vs. selection, and constraint problems.'
+      },
+      {
+        id: 'data-interpretation',
+        title: 'Data Interpretation & Ratios',
+        category: 'Aptitude & Reasoning',
+        icon: BarChart3,
+        description: 'Percentage growth, weighted averages, ratios, and extracting insights from charts.'
+      },
+      {
+        id: 'number-letter-series',
+        title: 'Number & Pattern Series',
+        category: 'Aptitude & Reasoning',
+        icon: ListOrdered,
+        description: 'Arithmetic/geometric progressions, alternating patterns, and sequence prediction.'
+      },
+      {
+        id: 'blood-relations-seating',
+        title: 'Blood Relations & Seating Puzzles',
+        category: 'Aptitude & Reasoning',
+        icon: Users,
+        description: 'Family tree mapping, linear/circular arrangements, and multi-constraint deduction.'
+      }
+    ]
+  },
+  {
+    id: 'ai-data-science',
+    name: 'Artificial Intelligence & Data Science',
+    icon: Brain,
+    badgeClass: 'badge-ai',
+    topics: [
+      {
+        id: 'machine-learning-fundamentals',
+        title: 'Machine Learning Fundamentals',
+        category: 'Artificial Intelligence & Data Science',
+        icon: Brain,
+        description: 'Training data, feature representations, loss functions, gradient descent, and generalization.'
+      },
+      {
+        id: 'neural-networks-deep-learning',
+        title: 'Neural Networks & Deep Learning',
+        category: 'Artificial Intelligence & Data Science',
+        icon: Bot,
+        description: 'Perceptrons, activation functions, backpropagation, CNNs, and modern deep architectures.'
+      },
+      {
+        id: 'nlp-llms',
+        title: 'Natural Language Processing & LLMs',
+        category: 'Artificial Intelligence & Data Science',
+        icon: Sparkles,
+        description: 'Tokenization, word embeddings, self-attention transformers, and generative language models.'
+      },
+      {
+        id: 'data-preprocessing-features',
+        title: 'Data Preprocessing & Feature Engineering',
+        category: 'Artificial Intelligence & Data Science',
+        icon: SlidersHorizontal,
+        description: 'Handling missing values, normalization, encoding, outlier removal, and dimensionality reduction.'
+      },
+      {
+        id: 'supervised-vs-unsupervised',
+        title: 'Supervised vs. Unsupervised Learning',
+        category: 'Artificial Intelligence & Data Science',
+        icon: GitFork,
+        description: 'Classification and regression with labeled data vs. clustering and anomaly detection.'
+      },
+      {
+        id: 'model-evaluation-overfitting',
+        title: 'Model Evaluation & Overfitting',
+        category: 'Artificial Intelligence & Data Science',
+        icon: Target,
+        description: 'Bias-variance tradeoff, cross-validation, precision/recall, F1 score, and regularization.'
       }
     ]
   },
   {
     id: 'general-knowledge',
     name: 'General Knowledge',
+    icon: Globe2,
     badgeClass: 'badge-gk',
     topics: [
       {
@@ -137,6 +382,27 @@ const TOPIC_CATEGORIES = [
         category: 'General Knowledge',
         icon: Rocket,
         description: 'Rocketry physics, lunar expeditions, Mars rovers, and humanity’s quest into deep space.'
+      },
+      {
+        id: 'world-geography',
+        title: 'World Geography & Plate Tectonics',
+        category: 'General Knowledge',
+        icon: Globe2,
+        description: 'Continental drift, ocean currents, climate zones, and major global landmarks.'
+      },
+      {
+        id: 'global-economics',
+        title: 'Global Economics & Inflation',
+        category: 'General Knowledge',
+        icon: Coins,
+        description: 'Supply and demand, central banks, interest rates, GDP, and purchasing power.'
+      },
+      {
+        id: 'constitutional-governance',
+        title: 'Constitutional Rights & Governance',
+        category: 'General Knowledge',
+        icon: Scale,
+        description: 'Separation of powers, fundamental rights, democratic institutions, and rule of law.'
       }
     ]
   }
@@ -228,54 +494,43 @@ const TopicSelection = () => {
               onClick={() => setActiveCategoryFilter('all')}
             >
               <span>All Categories</span>
-              <span className="pill-count">12</span>
+              <span className="pill-count">
+                {TOPIC_CATEGORIES.reduce((sum, c) => sum + c.topics.length, 0)}
+              </span>
             </button>
-            {TOPIC_CATEGORIES.map(cat => (
-              <button
-                key={cat.id}
-                type="button"
-                className={`category-pill ${activeCategoryFilter === cat.id ? 'active' : ''}`}
-                onClick={() => setActiveCategoryFilter(cat.id)}
-              >
-                <span>{cat.name}</span>
-                <span className="pill-count">{cat.topics.length}</span>
-              </button>
-            ))}
+            {TOPIC_CATEGORIES.map(cat => {
+              const CatIcon = cat.icon;
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  className={`category-pill ${activeCategoryFilter === cat.id ? 'active' : ''}`}
+                  onClick={() => setActiveCategoryFilter(cat.id)}
+                >
+                  {CatIcon && <CatIcon size={15} />}
+                  <span>{cat.name}</span>
+                  <span className="pill-count">{cat.topics.length}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Quick Search Bar */}
-          <div className="topic-search-wrapper" style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>
-            <div className="topic-search-container" style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              backgroundColor: '#ffffff',
-              border: '1.5px solid #e2e8f0',
-              borderRadius: '9999px',
-              padding: '10px 20px',
-              width: '100%',
-              maxWidth: '480px',
-              boxShadow: '0 2px 10px rgba(79, 40, 217, 0.06)'
-            }}>
-              <Search size={18} color="#64748b" />
+          <div className="topic-search-wrapper">
+            <div className="topic-search-container">
+              <Search size={18} className="topic-search-icon" />
               <input
                 type="text"
-                placeholder="Search topics (e.g. AI, Python, Photosynthesis)..."
+                placeholder="Search topics (e.g. Calculus, Python, Photosynthesis, Machine Learning)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  border: 'none',
-                  outline: 'none',
-                  width: '100%',
-                  fontSize: '0.95rem',
-                  color: '#0f172a'
-                }}
+                className="topic-search-input"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8' }}
+                  className="topic-search-clear"
                   title="Clear search"
                 >
                   <X size={16} />
@@ -288,18 +543,10 @@ const TopicSelection = () => {
         {/* Categories and Topic Cards Grid */}
         <div className="categories-list">
           {filteredCategories.length === 0 ? (
-            <div style={{
-              textAlign: 'center',
-              padding: '60px 20px',
-              background: '#ffffff',
-              borderRadius: '20px',
-              border: '1px dashed #cbd5e1',
-              maxWidth: '540px',
-              margin: '20px auto'
-            }}>
-              <BookOpen size={36} color="#7c3aed" style={{ marginBottom: '14px' }} />
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>No topics found</h3>
-              <p style={{ color: '#64748b', fontSize: '0.96rem', marginBottom: '18px' }}>
+            <div className="topic-empty-state">
+              <BookOpen size={36} className="topic-empty-icon" />
+              <h3>No topics found</h3>
+              <p>
                 We couldn't find any topics matching "<strong>{searchQuery}</strong>". Try searching for something else.
               </p>
               <button
@@ -311,13 +558,16 @@ const TopicSelection = () => {
               </button>
             </div>
           ) : (
-            filteredCategories.map(cat => (
+            filteredCategories.map(cat => {
+              const CatIcon = cat.icon;
+              return (
             <div key={cat.id} className="category-section">
               <div className="category-section-header">
                 <span className={`category-tag-badge ${cat.badgeClass}`}>
+                  {CatIcon && <CatIcon size={15} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} />}
                   {cat.name.toUpperCase()}
                 </span>
-                <span className="category-topic-count">3 Available Topics</span>
+                <span className="category-topic-count">{cat.topics.length} Available Topics</span>
               </div>
 
               <div className="topics-grid">
@@ -365,7 +615,9 @@ const TopicSelection = () => {
                 })}
               </div>
             </div>
-          )))}
+              );
+            })
+          )}
         </div>
 
         {/* In-page Continue Button Container */}

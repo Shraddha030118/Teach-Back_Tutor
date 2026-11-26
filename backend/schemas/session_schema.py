@@ -113,6 +113,50 @@ class EndSessionResponse(BaseModel):
 # -------------------------------------------------------------
 # Session History Schemas: GET /sessions, GET /sessions/{id}
 # -------------------------------------------------------------
+class TimelineDataPoint(BaseModel):
+    session_id: str
+    date: str
+    topic: str
+    understanding_score: float
+    clarity_score: float
+    accuracy_score: float
+    overall_score: float
+
+
+class TopicPerformance(BaseModel):
+    topic: str
+    session_count: int
+    avg_understanding: float
+    avg_clarity: float
+    avg_accuracy: float
+    avg_overall: float
+
+
+class PerformanceDistribution(BaseModel):
+    mastered: int
+    proficient: int
+    needs_work: int
+
+
+class ProgressAnalyticsResponse(BaseModel):
+    has_data: bool
+    total_completed_sessions: int
+    total_topics_explored: int
+    avg_understanding: float
+    avg_clarity: float
+    avg_accuracy: float
+    avg_overall: float
+    timeline: List[TimelineDataPoint] = []
+    topic_performance: List[TopicPerformance] = []
+    performance_distribution: PerformanceDistribution
+    strongest_topics: List[str] = []
+    topics_needing_improvement: List[str] = []
+    frequent_knowledge_gaps: List[str] = []
+    frequent_misconceptions: List[str] = []
+    suggested_revision_topics: List[str] = []
+    recent_sessions: List[Dict[str, Any]] = []
+
+
 class SessionListItem(BaseModel):
     id: str                           # session_id
     topic: str

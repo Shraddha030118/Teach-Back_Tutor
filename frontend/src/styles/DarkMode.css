@@ -699,3 +699,136 @@
 [data-theme="dark"] .auth-guest-link:hover {
   color: #cbd5e1;
 }
+
+/* 9. Learning Progress Dashboard */
+[data-theme="dark"] .dashboard-page-container {
+  background-color: #090d16;
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .dashboard-title {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .dashboard-subtitle {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .dashboard-refresh-btn {
+  background-color: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .dashboard-refresh-btn:hover:not(:disabled) {
+  border-color: #8b5cf6;
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .dashboard-empty-card {
+  background-color: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .metric-card {
+  background-color: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .metric-label {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .metric-value {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .metric-denom {
+  color: #64748b;
+}
+
+[data-theme="dark"] .metric-subtext {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .chart-card {
+  background-color: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .chart-title {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .chart-desc {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .insights-container {
+  background-color: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dashboard-history-section {
+  background-color: #131b2e;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .section-header-flex h2,
+[data-theme="dark"] .insights-header h2 {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .section-header-flex p,
+[data-theme="dark"] .insights-caption {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .sessions-table th {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .sessions-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .sessions-table tr:hover td {
+  background-color: rgba(139, 92, 246, 0.08);
+}
+
+[data-theme="dark"] .topic-name-cell {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .tag-strong {
+  background-color: rgba(16, 185, 129, 0.18);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+[data-theme="dark"] .tag-warning {
+  background-color: rgba(245, 158, 11, 0.18);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="dark"] .tag-revision {
+  background-color: rgba(139, 92, 246, 0.18);
+  color: #c4b5fd;
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+[data-theme="dark"] .view-report-table-btn {
+  background-color: rgba(139, 92, 246, 0.16);
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .view-report-table-btn:hover {
+  background-color: #7c3aed;
+  color: #ffffff;
+}

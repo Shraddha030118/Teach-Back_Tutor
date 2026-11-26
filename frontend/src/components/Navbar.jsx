@@ -85,6 +85,14 @@ const Navbar = () => {
           >
             History
           </Link>
+          <Link 
+            to={isAuthenticated ? "/dashboard" : "/login"} 
+            state={{ from: '/dashboard' }}
+            className={`nav-link ${location.pathname === '/dashboard' || location.pathname === '/progress' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+            Progress
+          </Link>
         </nav>
 
         {/* Auth & CTA Buttons */}
@@ -180,6 +188,14 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             History
+          </Link>
+          <Link 
+            to={isAuthenticated ? "/dashboard" : "/login"} 
+            state={{ from: '/dashboard' }}
+            className="mobile-link"
+            onClick={closeMenu}
+          >
+            Progress
           </Link>
 
           {!isAuthenticated ? (

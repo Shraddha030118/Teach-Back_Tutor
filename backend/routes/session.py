@@ -25,6 +25,8 @@ from schemas.session_schema import (
     EvaluationReport,
     SessionListItem, SessionDetailResponse,
     CreateSessionRequest, SessionResponse,
+    ProgressAnalyticsResponse, TimelineDataPoint,
+    TopicPerformance, PerformanceDistribution,
 )
 from services.ai_service import generate_student_response
 from services.evaluation_service import evaluate_session_transcript
@@ -288,6 +290,211 @@ async def list_sessions_new(
             user_id=s.get("user_id")
         ))
     return result
+
+
+# ---------------------------------------------------------------------------
+# GET /session/progress & /sessions/progress — Learning Progress Analytics
+# ---------------------------------------------------------------------------
+@router.get(
+    "/session/progress",
+    response_model=ProgressAnalyticsResponse,
+    summary="Get Learning Progress Analytics",
+    description="Calculates comprehensive learning progress analytics across all completed sessions for the authenticated student."
+)
+@router.get(
+    "/sessions/progress",
+    response_model=ProgressAnalyticsResponse,
+    include_in_schema=False
+)
+async def get_learning_progress(
+    current_user: dict = Depends(get_required_current_user)
+):
+    uid = current_user.get("user_id", current_user.get("id"))
+    all_sessions = await _list_all_sessions(user_id=uid)
+
+    # Filter strictly for completed sessions with evaluation reports
+    completed = []
+    for s in all_sessions:
+        if s.get("status") == "completed" and s.get("evaluation"):
+            completed.append(s)
+
+    empty_response = ProgressAnalyticsResponse(
+        has_data=False,
+        total_completed_sessions=0,
+        total_topics_explored=0,
+        avg_understanding=0.0,
+        avg_clarity=0.0,
+        avg_accuracy=0.0,
+        avg_overall=0.0,
+        timeline=[],
+        topic_performance=[],
+        performance_distribution=PerformanceDistribution(mastered=0, proficient=0, needs_work=0),
+        strongest_topics=[],
+        topics_needing_improvement=[],
+        frequent_knowledge_gaps=[],
+        frequent_misconceptions=[],
+        suggested_revision_topics=[],
+        recent_sessions=[]
+    )
+
+    if not completed:
+        return empty_response
+
+    # Chronological sort for timeline (earliest to latest)
+    sorted_chrono = sorted(completed, key=lambda x: str(x.get("created_at", "")))
+
+    timeline = []
+    understanding_scores = []
+    clarity_scores = []
+    accuracy_scores = []
+    overall_scores = []
+
+    topic_map = {}
+    knowledge_gap_counter = {}
+    misconception_counter = {}
+    revision_counter = {}
+
+    distribution = {"mastered": 0, "proficient": 0, "needs_work": 0}
+
+    for s in sorted_chrono:
+        eval_data = s.get("evaluation") or {}
+        u = float(eval_data.get("understanding_score", 0))
+        c = float(eval_data.get("clarity_score", 0))
+        a = float(eval_data.get("accuracy_score", 0))
+
+        # Overall percentage score (0-100)
+        ov = s.get("overall_score")
+        if ov is None:
+            ov = compute_overall_score(eval_data) or int(round(((u + c + a) / 30.0) * 100))
+        else:
+            ov = float(ov)
+
+        understanding_scores.append(u)
+        clarity_scores.append(c)
+        accuracy_scores.append(a)
+        overall_scores.append(ov)
+
+        if ov >= 80:
+            distribution["mastered"] += 1
+        elif ov >= 60:
+            distribution["proficient"] += 1
+        else:
+            distribution["needs_work"] += 1
+
+        topic_name = str(s.get("topic") or "Untitled").strip()
+        created_at_str = str(s.get("created_at", ""))
+        date_label = created_at_str[:10] if len(created_at_str) >= 10 else "Session"
+
+        timeline.append(TimelineDataPoint(
+            session_id=str(s.get("session_id", s.get("id", ""))),
+            date=date_label,
+            topic=topic_name,
+            understanding_score=round(u, 1),
+            clarity_score=round(c, 1),
+            accuracy_score=round(a, 1),
+            overall_score=round(ov, 1)
+        ))
+
+        # Topic aggregation
+        if topic_name not in topic_map:
+            topic_map[topic_name] = []
+        topic_map[topic_name].append({
+            "understanding": u,
+            "clarity": c,
+            "accuracy": a,
+            "overall": ov
+        })
+
+        # Count actual knowledge gaps, misconceptions, revision topics
+        for gap in eval_data.get("knowledge_gaps", []):
+            if isinstance(gap, str) and gap.strip():
+                clean_gap = gap.strip()
+                knowledge_gap_counter[clean_gap] = knowledge_gap_counter.get(clean_gap, 0) + 1
+
+        for misc in eval_data.get("misconceptions", []):
+            if isinstance(misc, str) and misc.strip():
+                clean_misc = misc.strip()
+                misconception_counter[clean_misc] = misconception_counter.get(clean_misc, 0) + 1
+
+        for rev in eval_data.get("revision_topics", []):
+            if isinstance(rev, str) and rev.strip():
+                clean_rev = rev.strip()
+                revision_counter[clean_rev] = revision_counter.get(clean_rev, 0) + 1
+
+    # Topic performance summary
+    topic_performance = []
+    for top, items in topic_map.items():
+        n = len(items)
+        topic_performance.append(TopicPerformance(
+            topic=top,
+            session_count=n,
+            avg_understanding=round(sum(x["understanding"] for x in items) / n, 1),
+            avg_clarity=round(sum(x["clarity"] for x in items) / n, 1),
+            avg_accuracy=round(sum(x["accuracy"] for x in items) / n, 1),
+            avg_overall=round(sum(x["overall"] for x in items) / n, 1)
+        ))
+
+    # Sort topics by performance
+    sorted_topics = sorted(topic_performance, key=lambda t: t.avg_overall, reverse=True)
+    strongest_topics = [t.topic for t in sorted_topics if t.avg_overall >= 70][:5]
+    if not strongest_topics and sorted_topics:
+        strongest_topics = [sorted_topics[0].topic]
+
+    topics_needing_improvement = [t.topic for t in reversed(sorted_topics) if t.avg_overall < 70][:5]
+    if not topics_needing_improvement and len(sorted_topics) > 1:
+        topics_needing_improvement = [sorted_topics[-1].topic]
+
+    frequent_knowledge_gaps = [
+        item for item, _ in sorted(knowledge_gap_counter.items(), key=lambda x: x[1], reverse=True)[:5]
+    ]
+    frequent_misconceptions = [
+        item for item, _ in sorted(misconception_counter.items(), key=lambda x: x[1], reverse=True)[:5]
+    ]
+
+    suggested_revision = [
+        item for item, _ in sorted(revision_counter.items(), key=lambda x: x[1], reverse=True)[:5]
+    ]
+    for top in topics_needing_improvement:
+        if top not in suggested_revision and len(suggested_revision) < 5:
+            suggested_revision.append(top)
+
+    total_n = len(completed)
+    avg_u = round(sum(understanding_scores) / total_n, 1)
+    avg_c = round(sum(clarity_scores) / total_n, 1)
+    avg_a = round(sum(accuracy_scores) / total_n, 1)
+    avg_ov = round(sum(overall_scores) / total_n, 1)
+
+    # Recent completed sessions (most recent first) for direct navigation
+    recent_sessions = []
+    for s in sorted(completed, key=lambda x: str(x.get("created_at", "")), reverse=True)[:10]:
+        recent_sessions.append({
+            "session_id": str(s.get("session_id", s.get("id", ""))),
+            "topic": str(s.get("topic", "Untitled")),
+            "created_at": str(s.get("created_at", "")),
+            "overall_score": s.get("overall_score"),
+            "understanding_score": s.get("evaluation", {}).get("understanding_score"),
+            "clarity_score": s.get("evaluation", {}).get("clarity_score"),
+            "accuracy_score": s.get("evaluation", {}).get("accuracy_score")
+        })
+
+    return ProgressAnalyticsResponse(
+        has_data=True,
+        total_completed_sessions=total_n,
+        total_topics_explored=len(topic_map),
+        avg_understanding=avg_u,
+        avg_clarity=avg_c,
+        avg_accuracy=avg_a,
+        avg_overall=avg_ov,
+        timeline=timeline,
+        topic_performance=topic_performance,
+        performance_distribution=PerformanceDistribution(**distribution),
+        strongest_topics=strongest_topics,
+        topics_needing_improvement=topics_needing_improvement,
+        frequent_knowledge_gaps=frequent_knowledge_gaps,
+        frequent_misconceptions=frequent_misconceptions,
+        suggested_revision_topics=suggested_revision,
+        recent_sessions=recent_sessions
+    )
 
 
 # ---------------------------------------------------------------------------

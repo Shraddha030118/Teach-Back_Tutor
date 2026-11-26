@@ -11,6 +11,7 @@ import TopicSelection from './pages/TopicSelection';
 import Session from './pages/Session';
 import Report from './pages/Report';
 import History from './pages/History';
+import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -58,6 +59,14 @@ function AppContent() {
           <Route 
             path="/history" 
             element={<ProtectedRoute><History /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/dashboard" 
+            element={<ProtectedRoute><Dashboard /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/progress" 
+            element={<ProtectedRoute><Dashboard /></ProtectedRoute>} 
           />
         </Routes>
       </main>

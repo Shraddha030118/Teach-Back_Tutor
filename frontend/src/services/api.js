@@ -141,6 +141,14 @@ export const getSessionById = async (sessionId) => {
   return response.data;
 };
 
+/**
+ * Returns learning progress analytics across completed sessions for the authenticated user.
+ */
+export const getLearningProgress = async () => {
+  const response = await api.get('/session/progress');
+  return response.data;
+};
+
 // ─── Health ──────────────────────────────────────────────────────────────────
 
 export const checkBackendHealth = async () => {

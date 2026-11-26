@@ -1,17 +1,54 @@
 /* ========================================================
-   Chat Input Styles
-   Theme: Purple, Lavender & Clean White
+   Chat Input Styles with Voice Input & Soundwave UI
+   Theme: Purple, Lavender & Modern EdTech
    ======================================================== */
 
 .chat-input-container {
   width: 100%;
+  position: relative;
 }
 
+/* Voice Error Notification Banner */
+.voice-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  animation: voiceBannerFade 0.25s ease-out;
+}
+
+.voice-error-dismiss {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #991b1b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 4px;
+  opacity: 0.75;
+  transition: opacity 0.15s ease;
+}
+
+.voice-error-dismiss:hover {
+  opacity: 1;
+}
+
+/* Main Input Card */
 .chat-input-card {
   background: #f5f2ff;
   border: 1.5px solid #ddd6fe;
   border-radius: 16px;
-  padding: 14px 18px 10px;
+  padding: 12px 16px 10px;
   box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
   transition: all 0.25s ease;
   display: flex;
@@ -20,7 +57,117 @@
 
 .chat-input-card:focus-within {
   border-color: #7c3aed;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12), 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Voice Recording Active Card State */
+.chat-input-card.voice-recording-active {
+  border-color: #8b5cf6;
+  background: #fbf9ff;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.22), 0 8px 26px rgba(124, 58, 237, 0.12);
+}
+
+/* Active Voice Recording Live Strip */
+.voice-recording-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px 8px;
+  margin-bottom: 6px;
+  background: rgba(139, 92, 246, 0.09);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 10px;
+  animation: voiceStripSlide 0.2s ease-out;
+}
+
+.voice-status-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voice-record-pulse-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: recordingDotPulse 1.4s infinite;
+}
+
+.voice-status-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #6d28d9;
+  letter-spacing: -0.01em;
+}
+
+/* Soundwave Audio Bars */
+.soundwave-bars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 16px;
+  padding: 0 4px;
+}
+
+.soundwave-bar {
+  display: inline-block;
+  width: 3px;
+  background: linear-gradient(180deg, #7c3aed 0%, #4f46e5 100%);
+  border-radius: 9999px;
+  animation: soundwaveBounce 1s infinite ease-in-out;
+}
+
+.bar-1 { height: 6px; animation-delay: 0.1s; }
+.bar-2 { height: 14px; animation-delay: 0.3s; }
+.bar-3 { height: 18px; animation-delay: 0s; }
+.bar-4 { height: 11px; animation-delay: 0.2s; }
+.bar-5 { height: 7px; animation-delay: 0.4s; }
+
+/* Voice Control Actions (Done / Cancel) */
+.voice-recording-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.voice-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+.voice-done-btn {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.voice-done-btn:hover {
+  background-color: #6d28d9;
+}
+
+.voice-cancel-btn {
+  background-color: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+.voice-cancel-btn:hover {
+  background-color: rgba(239, 68, 68, 0.22);
+}
+
+/* Textarea & Wrapper */
+.textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .chat-textarea-field {
@@ -34,20 +181,50 @@
   color: #0f172a;
   background: transparent;
   max-height: 160px;
-  min-height: 24px;
+  min-height: 26px;
 }
 
 .chat-textarea-field::placeholder {
   color: #94a3b8;
 }
 
+/* Real-time Interim Voice Speech Preview */
+.voice-interim-preview {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 4px 8px;
+  background: rgba(139, 92, 246, 0.08);
+  border-left: 2px solid #7c3aed;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  animation: voiceBannerFade 0.2s ease-out;
+}
+
+.interim-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #7c3aed;
+  letter-spacing: 0.03em;
+}
+
+.interim-text {
+  color: #4338ca;
+  font-style: italic;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+/* Bottom Input Actions Bar */
 .input-actions-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
   padding-top: 8px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid rgba(221, 214, 254, 0.6);
 }
 
 .input-hint-text {
@@ -60,6 +237,56 @@
   color: #64748b;
 }
 
+.input-button-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Voice Microphone Button */
+.voice-mic-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background-color: #ede9fe;
+  color: #6d28d9;
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 1px solid #ddd6fe;
+}
+
+.voice-mic-btn:hover:not(:disabled) {
+  background-color: #ddd6fe;
+  color: #5b21b6;
+  border-color: #c4b5fd;
+  transform: translateY(-1px);
+}
+
+.voice-mic-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Active Recording Mic Button State */
+.voice-mic-btn.recording {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25), 0 4px 12px rgba(239, 68, 68, 0.35);
+  animation: micButtonPulse 1.6s infinite ease-in-out;
+}
+
+.voice-mic-btn.recording:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-color: #b91c1c;
+}
+
+/* Send Button */
 .chat-send-btn {
   display: inline-flex;
   align-items: center;
@@ -70,7 +297,7 @@
   color: #7c3aed;
   font-size: 0.88rem;
   font-weight: 700;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   border: none;
 }
@@ -92,9 +319,73 @@
   transform: none !important;
 }
 
+/* Keyframe Animations */
+@keyframes recordingDotPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes soundwaveBounce {
+  0%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes micButtonPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25), 0 4px 12px rgba(239, 68, 68, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.4), 0 6px 16px rgba(239, 68, 68, 0.5);
+  }
+}
+
+@keyframes voiceStripSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes voiceBannerFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   .input-hint-text {
     display: none;
   }
+  .voice-btn-label {
+    display: none;
+  }
+  .voice-mic-btn {
+    padding: 8px 10px;
+  }
 }
-

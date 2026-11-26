@@ -409,6 +409,68 @@
   box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
 }
 
+/* Voice Input Dark Mode Styling */
+[data-theme="dark"] .chat-input-card.voice-recording-active {
+  border-color: #a78bfa !important;
+  background: #172036 !important;
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25), 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .voice-recording-strip {
+  background: rgba(139, 92, 246, 0.16);
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+[data-theme="dark"] .voice-status-text {
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .soundwave-bar {
+  background: linear-gradient(180deg, #a78bfa 0%, #818cf8 100%);
+}
+
+[data-theme="dark"] .voice-mic-btn {
+  background-color: rgba(139, 92, 246, 0.16);
+  color: #c4b5fd;
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+[data-theme="dark"] .voice-mic-btn:hover:not(:disabled) {
+  background-color: rgba(139, 92, 246, 0.28);
+  color: #ede9fe;
+  border-color: #a78bfa;
+}
+
+[data-theme="dark"] .voice-mic-btn.recording {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  border-color: #f87171;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3), 0 4px 14px rgba(239, 68, 68, 0.45);
+}
+
+[data-theme="dark"] .voice-interim-preview {
+  background: rgba(139, 92, 246, 0.15);
+  border-left-color: #a78bfa;
+}
+
+[data-theme="dark"] .interim-label {
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .interim-text {
+  color: #e0e7ff;
+}
+
+[data-theme="dark"] .voice-error-banner {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+[data-theme="dark"] .voice-error-dismiss {
+  color: #f87171;
+}
+
 [data-theme="dark"] .char-counter {
   color: #64748b;
 }

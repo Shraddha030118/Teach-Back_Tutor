@@ -242,13 +242,13 @@
 
 /* Dark Mode Dot Accents */
 [data-theme="dark"] .magnetic-cursor-dot {
-  background-color: #818cf8;
-  box-shadow: 0 0 10px rgba(129, 140, 248, 0.85);
+  background-color: var(--primary, #A78BFA);
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.85);
 }
 
 [data-theme="dark"] .magnetic-cursor-dot.is-hover {
   background-color: #ffffff;
-  box-shadow: 0 0 10px #ffffff, 0 0 18px #38bdf8;
+  box-shadow: 0 0 10px #ffffff, 0 0 18px var(--accent, #D8A5C4);
 }
 
 /* 8. Touchscreens & Mobile Devices (Completely Disabled) */

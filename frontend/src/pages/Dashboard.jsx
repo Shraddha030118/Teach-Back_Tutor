@@ -36,7 +36,7 @@ import {
 import { getLearningProgress } from '../services/api';
 import '../styles/Dashboard.css';
 
-const PIE_COLORS = ['#20B8A5', '#5956D6', '#f59e0b'];
+const PIE_COLORS = ['#4DAD91', '#76549A', '#C58BAE'];
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
@@ -261,7 +261,7 @@ const Dashboard = () => {
                         type="monotone"
                         dataKey="understanding_score"
                         name="Understanding"
-                        stroke="#5956D6"
+                        stroke="#76549A"
                         strokeWidth={3}
                         dot={{ r: 4 }}
                         activeDot={{ r: 7 }}
@@ -270,7 +270,7 @@ const Dashboard = () => {
                         type="monotone"
                         dataKey="clarity_score"
                         name="Clarity"
-                        stroke="#9290FF"
+                        stroke="#C58BAE"
                         strokeWidth={2.5}
                         strokeDasharray="4 2"
                         dot={{ r: 3 }}
@@ -279,7 +279,7 @@ const Dashboard = () => {
                         type="monotone"
                         dataKey="accuracy_score"
                         name="Accuracy"
-                        stroke="#20B8A5"
+                        stroke="#4DAD91"
                         strokeWidth={2.5}
                         dot={{ r: 3 }}
                       />
@@ -326,8 +326,8 @@ const Dashboard = () => {
                       />
                       <defs>
                         <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#5956D6" />
-                          <stop offset="100%" stopColor="#20B8A5" />
+                          <stop offset="0%" stopColor="#76549A" />
+                          <stop offset="100%" stopColor="#C58BAE" />
                         </linearGradient>
                       </defs>
                     </BarChart>
